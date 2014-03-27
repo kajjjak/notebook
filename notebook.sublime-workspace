@@ -1,0 +1,1410 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"render",
+				"renderBoardsMenu"
+			],
+			[
+				"pi",
+				"pictures"
+			],
+			[
+				"callb",
+				"callback_success"
+			],
+			[
+				"cal",
+				"callback_success"
+			],
+			[
+				"load",
+				"loadConfigCache"
+			],
+			[
+				"client_",
+				"client_uid"
+			],
+			[
+				"client",
+				"client_doc"
+			],
+			[
+				"save",
+				"saveClientInfo"
+			],
+			[
+				"clie",
+				"client_doc"
+			],
+			[
+				"cli",
+				"client_doc"
+			],
+			[
+				"on",
+				"onDeviceFocus"
+			],
+			[
+				"set",
+				"setWatchPlayerPosition"
+			],
+			[
+				"lat",
+				"latlng"
+			],
+			[
+				"route",
+				"route_path"
+			],
+			[
+				"game_",
+				"game_items"
+			],
+			[
+				"attr",
+				"attraction_undefined"
+			],
+			[
+				"book_",
+				"book_menus"
+			],
+			[
+				"loca",
+				"location"
+			],
+			[
+				"gam",
+				"game_state"
+			],
+			[
+				"getP",
+				"getPathSelected"
+			],
+			[
+				"defa",
+				"default_image"
+			],
+			[
+				"map",
+				"mapIDs"
+			],
+			[
+				"tile",
+				"tileIds"
+			],
+			[
+				"callback",
+				"callback_completed"
+			],
+			[
+				"callback_",
+				"callback_progress"
+			],
+			[
+				"ca",
+				"callback_success"
+			],
+			[
+				"succ",
+				"callback_success"
+			],
+			[
+				"img",
+				"imgbase64"
+			],
+			[
+				"con",
+				"convertImageToBase64"
+			],
+			[
+				"callba",
+				"callback_failure"
+			],
+			[
+				"callbac",
+				"callback_success"
+			],
+			[
+				"call",
+				"callback_progress"
+			],
+			[
+				"fun",
+				"funcLayer"
+			],
+			[
+				"Wikitu",
+				"WikitudePlugin"
+			],
+			[
+				"fire",
+				"fireWeapon"
+			],
+			[
+				"rep",
+				"repeller"
+			],
+			[
+				"game",
+				"game_items"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"item",
+				"game_items"
+			],
+			[
+				"mark",
+				"marker_actor2"
+			],
+			[
+				"asse",
+				"asset_name"
+			],
+			[
+				"CONST_BUTTON_WATCH_",
+				"CONST_BUTTON_WATCH_TRACKING"
+			],
+			[
+				"dr",
+				"drain"
+			],
+			[
+				"pl",
+				"player_range"
+			],
+			[
+				"_",
+				"__getLatLngObject"
+			],
+			[
+				"zoom",
+				"zoom_level"
+			],
+			[
+				"dra",
+				"draggable"
+			],
+			[
+				"setItem",
+				"setItemStateLabel"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"pro",
+				"properties"
+			],
+			[
+				"hit",
+				"hit_param_name"
+			],
+			[
+				"close",
+				"close_actors"
+			],
+			[
+				"distan",
+				"distanceTo"
+			],
+			[
+				"range",
+				"range_detection"
+			],
+			[
+				"lon",
+				"longitude"
+			],
+			[
+				"abs",
+				"absolute"
+			],
+			[
+				"deploy",
+				"deploy_setting"
+			],
+			[
+				"consoleM",
+				"consoleOutputMessage"
+			],
+			[
+				"show",
+				"showUserMessage"
+			],
+			[
+				"__",
+				"__cw_projects"
+			],
+			[
+				"__c",
+				"__cw_gui"
+			],
+			[
+				"zip",
+				"zip_writer"
+			],
+			[
+				"__w",
+				"__cw_util"
+			],
+			[
+				"file_ope",
+				"file_open_item_selected"
+			],
+			[
+				"consoleOutput",
+				"consoleOutputMessage"
+			],
+			[
+				"__cw",
+				"__cw_util"
+			],
+			[
+				"__cw_",
+				"__cw_tree"
+			],
+			[
+				"sys",
+				"system_plugins"
+			],
+			[
+				"foun",
+				"found_logo"
+			],
+			[
+				"found",
+				"found_readme"
+			],
+			[
+				"setD",
+				"setDeployment"
+			],
+			[
+				"configu",
+				"configuration"
+			],
+			[
+				"getPre",
+				"getPreviewFile"
+			],
+			[
+				"content",
+				"content_types"
+			],
+			[
+				"de",
+				"deployment"
+			],
+			[
+				"conte",
+				"content_types"
+			],
+			[
+				"content_",
+				"content_types"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"plugin",
+				"plugin_list"
+			],
+			[
+				"backgrou",
+				"background-color"
+			],
+			[
+				"getPlugin",
+				"getPluginMgr"
+			],
+			[
+				"dialog",
+				"dialog_workspace_plugins"
+			],
+			[
+				"url",
+				"urlencoded"
+			],
+			[
+				"is",
+				"isStrict"
+			],
+			[
+				"template",
+				"template_variables"
+			],
+			[
+				"In",
+				"IntegerField"
+			],
+			[
+				"import",
+				"importCouchApp"
+			],
+			[
+				"com",
+				"compiled_split"
+			],
+			[
+				"key",
+				"keywords"
+			],
+			[
+				"ou",
+				"outer_html"
+			],
+			[
+				"outer",
+				"outer_html"
+			],
+			[
+				"compi",
+				"compiled_css"
+			],
+			[
+				"html",
+				"html_elemnts"
+			],
+			[
+				"html_",
+				"html_elemnt_index"
+			],
+			[
+				"error",
+				"error_message"
+			],
+			[
+				"hi",
+				"hidden"
+			],
+			[
+				"prev",
+				"preview_file_name"
+			],
+			[
+				"break",
+				"breakpoints"
+			],
+			[
+				"getConfig",
+				"getConfigCompiler"
+			],
+			[
+				"getConfi",
+				"getConfig"
+			],
+			[
+				"confi",
+				"configuration_user"
+			],
+			[
+				"getO",
+				"getConfig"
+			],
+			[
+				"font",
+				"font-variant"
+			],
+			[
+				"merge",
+				"merge_conflicts"
+			],
+			[
+				"conf",
+				"conflicts"
+			],
+			[
+				"get",
+				"getSession"
+			],
+			[
+				"err",
+				"error_messages"
+			],
+			[
+				"auto",
+				"autocomplete"
+			],
+			[
+				"consoleO",
+				"consoleOutputMessage"
+			],
+			[
+				"snap",
+				"snapshot_prefix"
+			],
+			[
+				"sna",
+				"snapshot_prefix"
+			],
+			[
+				"___Re",
+				"___rec_stops"
+			],
+			[
+				"___re",
+				"___rec_starts"
+			],
+			[
+				"qu",
+				"queryString"
+			],
+			[
+				"___rec",
+				"___rec_stops"
+			],
+			[
+				"__re",
+				"___rec_counter"
+			],
+			[
+				"pre",
+				"preview_file"
+			],
+			[
+				"getFile",
+				"getFileByName"
+			],
+			[
+				"setP",
+				"setPreviewHTML"
+			],
+			[
+				"window",
+				"workspace_layout_windows"
+			],
+			[
+				"lay",
+				"layout_options"
+			],
+			[
+				"brea",
+				"breakpoint_rows"
+			],
+			[
+				"comp",
+				"compiledHTML"
+			],
+			[
+				"j",
+				"getJson"
+			],
+			[
+				"populate",
+				"populateDialogWorkspaceProType"
+			],
+			[
+				"evalu",
+				"evaluated"
+			],
+			[
+				"PAYMENT_VALITATION_STATE_",
+				"PAYMENT_VALITATION_STATE_SYSTEMUPDATE_FAILED_ACCOUNT"
+			],
+			[
+				"PAYMENT_VALITATION_STATE_VALIDATION_",
+				"PAYMENT_VALITATION_STATE_VALIDATION_FAILED"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"close",
+				"File: Close All"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/www/js/index.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/www/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/web/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/web/js/script.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/www/js/media_uploader.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/childnotebook/www/js/utils_phonegap.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/js/main.js",
+		"/Users/kjartanjonsson/Documents/Workspace/defensemap.com/defensemap/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/defensemap.com/defensemap/scripts/ledger.js",
+		"/Users/kjartanjonsson/Documents/Workspace/defensemap.com/coc.json",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/config.xml",
+		"/Users/kjartanjonsson/Documents/Binary/adt-bundle/fixpaths.sh",
+		"/Users/kjartanjonsson/Documents/Workspace/defensemap.com/documentation/coc_mapping.txt",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/js/gamemap.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/js/lib/mgl.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/vendor/jquery.mobile.custom/jquery.mobile.custom.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/vendor/jquery.mobile-1.4.1/jquery.mobile-1.4.1.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/js/lib/iscroll.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/js/lib/jquery.mobile.iscrollview.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/data/attractions.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/js/lib/fastclick.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/js/lib/mapbox_offline.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/childnotebook/www/js/index.js",
+		"/Users/kjartanjonsson/Downloads/Karma-Slots-master/index.html",
+		"/Users/kjartanjonsson/Downloads/Karma-Slots-master/slots.css",
+		"/Users/kjartanjonsson/Downloads/Karma-Slots-master/slots.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/js/lib/jquery-mobile-transparent-ui-overlay.css",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/js/leaflet.functionaltilelayer.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/runserver.sh",
+		"/Users/kjartanjonsson/Documents/Workspace/defensemap.com/runserver.sh",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/js/index.js",
+		"/Users/kjartanjonsson/Documents/Workspace/utikennsluapp.is/utikennsluapp/www/css/index.css",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/www/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/www/config.xml",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/config.xml",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/css/index.css",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/js/gamemap.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/js/index.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/world/ghosts/js/addingRadar.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/WikitudePlugin.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/world/ghosts/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/world/ghosts/js/marker.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/js/lib/mgl.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/untitled",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/world/ghosts/untitled",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/childnotebook/www/config.xml",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/childnotebook/www/css/index.css",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/childnotebook/platforms/ios/www/config.xml",
+		"/Users/kjartanjonsson/Downloads/wikitude-phonegap-samples-master/PluginSamples/www/world/5_BrowsingPois_4_ReloadingContent/js/reloadingPois.js",
+		"/Users/kjartanjonsson/Documents/Workspace/defensemap.com/node/defensemap/public/scripts/game.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/js/lib/mglutils.js",
+		"/Users/kjartanjonsson/Documents/Workspace/defensemap.com/node/defensemap/public/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/defensemap.com/node/defensemap/public/scripts/mgl.js",
+		"/Users/kjartanjonsson/Downloads/MapGap-master/iOS/www/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/defensemap.com/node/defensemap/public/stylesheets/actors.css",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/map.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/js/lib/mapbox.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ghostburster.com/ghostburster/platforms/ios/www/css/mapbox.css",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/project/models.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/simplr/deploy/couchapp.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/simplr/api.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/simplr/urls.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/project/views.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/dev/cdbdesigns/test.json",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/project.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/editor.manifest",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/workspace.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/simplr/settings.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/css/codewip.css",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/billing/views.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/config.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/gui.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates/test_paypal.html",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/repository_github.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/chardinjs/chardinjs.min.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/chardinjs/chardinjs.css",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/css/style.css",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates/base.html",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/plugin.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/editor.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_html.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/projects.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/dev/plugins/plugins_extracted.json",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/clientstore.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/files.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates/login.html",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/codewip.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/workspace.sublime-workspace",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/utils.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/www/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/css/layout-default.css",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates/plugin.html",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/prettyPrint/1.03.0/prettyprint.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/requests/utils.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/node/util.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/json.human.js/json.human.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/promotion/models.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/simplr/admin.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/editor/models.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/developer/models.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/offline/0.4.7/offline.min.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/css/offline_theme.css",
+		"/Users/kjartanjonsson/Dropbox/mystackedit/file.md",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/tree.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/offline/0.4.7/offline.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/dev/plugins/Plugin Javascript/readme.md",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/dropbox/dropbox.min.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_javascript.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_coffee.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/repository_storage.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/deployment_couchdb.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_markdown.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_haml.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/preview.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_less.js",
+		"/Users/kjartanjonsson/Downloads/FullScreenMario-master/library.js",
+		"/Users/kjartanjonsson/Downloads/FullScreenMario-master/sprites.js",
+		"/Users/kjartanjonsson/Downloads/FullScreenMario-master/Maps/World34.js",
+		"/Users/kjartanjonsson/Downloads/FullScreenMario-master/mario.css",
+		"/Users/kjartanjonsson/Downloads/Plugin plugin-installer/readme.md",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/editor/views.py",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/font-awesome/3.2.1/css/font-awesome.css",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_css.js",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/editor/fixtures/fixture.json",
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/tests/test_files.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/,/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/,/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates,/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/,/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/js/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/js/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/js/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/js/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.20/simplr/static/js/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.20/simplr/static/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.20/simplr/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.20/simplr/static/js",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/static/css,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/static/images,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/static/js,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/static/tests,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/developer,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/simplr,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/static,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/templates",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/couchdb",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/developer,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/editor,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/project,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/simplr,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/static,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/templates",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/static/images",
+			"/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/developer,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/editor,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/project,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/simplr,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/static,/Users/kjartanjonsson/Documents/Workspace/simplrweb/simplr/templates",
+			"/Users/kjartanjonsson/Documents/Workspace/v01-codeblock/src",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"http",
+			"loadStreams",
+			"loadListCache",
+			"client_lst",
+			"buildList",
+			"loadList",
+			"register",
+			"register(",
+			"fetchConfig",
+			"loadConfigCache",
+			"db.",
+			"saveD",
+			"childno",
+			"readFile",
+			".db.",
+			"stream_feeds",
+			"showStreamFeeds",
+			"redrawStreamHistory",
+			"showStreams",
+			".db",
+			"db.",
+			"app.sync",
+			"saveData",
+			"Not found",
+			"--",
+			"fetchConfig",
+			"client_doc_default",
+			"loadConfigCache",
+			"app.client_doc",
+			"client_doc",
+			"initialize",
+			"client_doc",
+			"\"{",
+			"saveClientInfo",
+			"fetchStreams",
+			"\"-\"",
+			"client_uid",
+			"_uid",
+			"Cr",
+			"Cry",
+			"add Child",
+			"db.",
+			"saveData",
+			"icture",
+			"amera",
+			"displayCacheList",
+			"buildList",
+			"buildList\nbuildList\nbuildList",
+			"buildList\nbuildList",
+			"getItem",
+			"client_lst",
+			"fetchList",
+			"stream_key",
+			"fetchStreams",
+			"loadConfig",
+			"saveStreams",
+			"loadStreams",
+			"fetchStreams",
+			"\"setup\"",
+			"http",
+			"app.server_u",
+			"captureUploadPicture",
+			"navigator",
+			"captureUploadPicture",
+			"localStorage",
+			"stream_field",
+			"new Date",
+			"client_uid",
+			"localStore",
+			"lang",
+			"button_mainlist",
+			"\"181-110\"",
+			"addItemRecord",
+			"debit",
+			"setWatchPlayerPosition",
+			"watchPos",
+			"setWatchPlayer",
+			"setWatchPlayerPosition",
+			"logMessage",
+			"console.log",
+			"show",
+			"prepData",
+			"withinRange",
+			"force",
+			"locatePlayer",
+			"panTo",
+			"setWatchPlayerPosition",
+			"  if((map.panTo) && (window.player)){map.panTo(window.player.getPosition());}\n",
+			"panTo",
+			"watch",
+			"setWatchPlayerPosition",
+			"setWatchPlayer",
+			"locate",
+			"Success",
+			"window.device",
+			"setUserLocationSuccess",
+			"onDeviceReady",
+			"showMap",
+			"loadControls",
+			"window.dev",
+			"5.7",
+			"device",
+			"onOnline",
+			"online",
+			"onOffline",
+			"showMap",
+			"active",
+			"locatePlayer",
+			"onDeviceFocus",
+			"setViewPortChanged",
+			"replace",
+			"oute_path = route_path.repla",
+			".png",
+			"css",
+			"css/",
+			"location_error",
+			"watch",
+			"setWatchPlayerPosition",
+			"locatePlayer",
+			"showPath",
+			"setWatchPlayerPosition",
+			"locatePlayer",
+			"null",
+			"== null",
+			"layer.watch",
+			"locatePlayer",
+			"setWatchPlayerPosition",
+			"game_state.player.watch"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"fetchConfig",
+			"saveConfig",
+			"loadConfig",
+			"fetchConfig",
+			"\"cash\"",
+			"addTransactionItem",
+			"debet",
+			"logMessage",
+			"navigator.device",
+			"page_areas_button",
+			"\"2",
+			"buildBookMenu",
+			"setUserLocationSuccess",
+			"menu_attraction4",
+			"menu_attraction3",
+			"menu_attraction2",
+			"menu_attraction1",
+			"js/lib/",
+			"actorsheet",
+			"img/placeholder_item",
+			"markerDrawable_actoridle",
+			"page_item",
+			"addPlayerEconomy",
+			"bounty",
+			"game_state.scanner.range",
+			"scanner.power",
+			"scan_label",
+			"random_range",
+			"scanbutton",
+			"<img src=\"http://demos.jquerymobile.com/1.3.2/examples/listviews/",
+			"src=\"http://demos.jquerymobile.com/1.3.2/examples/listviews/",
+			"mmgr",
+			"player_location",
+			"examples.map-y7l23tes",
+			"file_extension",
+			"text/couchdb",
+			"text/couchapp",
+			"codewip_130rc",
+			"__cw_gui.learn_gui_timer_file",
+			"addGUIEventHandler",
+			"__cw_gui.executeCreateDialogCreateFile",
+			"__cw_gui.addGUIEventHandler",
+			"__cw_gui.closeDialog",
+			"",
+			".plugins",
+			"config.plugins",
+			"// ",
+			"/span><span",
+			"testForTypes",
+			"\\t\\t",
+			"\\n",
+			"\\\\n",
+			"less_require",
+			"success_compiled",
+			"html_elemnt_index+1",
+			"exports.",
+			"_buildHTMLElements",
+			"\\n\\",
+			"/scripts/",
+			"<div class=\"hideonload\" id=\"dialog_",
+			"disabled",
+			"    ",
+			"self",
+			"\\n",
+			"saveDocument",
+			", \"help_text\": null",
+			"{\"label\":\"\", \"help_text\": \"Super\"},",
+			"Change",
+			"\\n",
+			"\\\\n ",
+			"\\\\\"",
+			"\\\"",
+			"\\\\t",
+			"\\\\n",
+			"\\n",
+			"main_menu_list cssmenu",
+			"._setDBID",
+			"content_type_options",
+			"date_projectchanged",
+			"/static/vendor/font-awesome/3.2.1/font/",
+			"createDialogFileConflict",
+			"dialog_workspace_fileconflict",
+			"callback_merge",
+			".updated",
+			"localStorage",
+			"this.getFiles()",
+			"updateGUI",
+			"__setCurrentProjectId",
+			"__getCurrentProjectId",
+			"loadProject",
+			"editor_img",
+			"d, \"readonly\"",
+			"_sessions",
+			"CLIENTSTORE_TABLE_FILES",
+			"this.CLIENTSTORE_TABLE_FILES",
+			"CLIENTSTORE_TABLE_PROJECTS",
+			"clientstore",
+			"client_result_websqldb",
+			"websqldb",
+			"WebSQLDB",
+			"'",
+			"vendor.codewip",
+			"(test_result.doc.",
+			"window.test_data_test_io_couchddb",
+			"deployCouchApp",
+			"DeployCouchApp.buildApp",
+			"__buildVendors",
+			"content",
+			"",
+			"Sign in",
+			"Login with",
+			"'socialauth_begin'",
+			"cache",
+			"buffer",
+			"/static/js/",
+			"/static/vendor/",
+			"updateFileTree",
+			"_queue.shift",
+			"this.project",
+			"workspace.getProject",
+			"changed_found",
+			"-1x",
+			"this.___local_storage_db",
+			"\",",
+			"\"",
+			"",
+			")",
+			"upload_form."
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 324.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"mg",
+				"js/lib/mgl.js"
+			],
+			[
+				"index.css",
+				"css/index.css"
+			],
+			[
+				"mg.js",
+				"js/lib/mgl.js"
+			],
+			[
+				"in",
+				"css/index.css"
+			],
+			[
+				"confi",
+				"static/scripts/config.js"
+			],
+			[
+				"gui.js",
+				"static/scripts/gui.js"
+			],
+			[
+				"projects",
+				"static/scripts/projects.js"
+			],
+			[
+				"sett",
+				"simplr/settings.py"
+			],
+			[
+				"project.",
+				"static/scripts/project.js"
+			],
+			[
+				"gui",
+				"static/scripts/gui.js"
+			],
+			[
+				"style.css",
+				"static/css/style.css"
+			],
+			[
+				"index.",
+				"templates/index.html"
+			],
+			[
+				"work",
+				"static/scripts/workspace.js"
+			],
+			[
+				"util.js",
+				"static/scripts/utils.js"
+			],
+			[
+				"util",
+				"static/node/util.js"
+			],
+			[
+				"plugin",
+				"templates/plugin.html"
+			],
+			[
+				"config",
+				"static/scripts/config.js"
+			],
+			[
+				"works",
+				"static/scripts/workspace.js"
+			],
+			[
+				"offline",
+				"static/vendor/offline/0.4.7/offline.min.js"
+			],
+			[
+				"plugin.js",
+				"static/scripts/plugin.js"
+			],
+			[
+				"models.py",
+				"project/models.py"
+			],
+			[
+				"plu",
+				"templates/plugin.html"
+			],
+			[
+				"editorview",
+				"editor/views.py"
+			],
+			[
+				"project",
+				"static/scripts/project.js"
+			],
+			[
+				"style",
+				"static/css/style.css"
+			],
+			[
+				"index",
+				"templates/index.html"
+			],
+			[
+				"inde.x",
+				"openid/test/data/test_discover/yadis_no_delegate.xml"
+			],
+			[
+				"github",
+				"static/js/modules/repository_github.js"
+			],
+			[
+				"html2",
+				"static/vendor/html2canvas/0.4.1/html2canvas.js"
+			],
+			[
+				"ui-",
+				"static/vendor/jquery.ui/1.8.24/jquery-ui.custom.min.js"
+			],
+			[
+				"underscore.",
+				"static/vendor/underscore.string/1.1.4/underscore.string.js"
+			],
+			[
+				"diffv",
+				"static/vendor/jsdifflib/diffview.css"
+			],
+			[
+				"js",
+				"static/js/codestore.js"
+			],
+			[
+				"simplr",
+				"simplr/models.py"
+			],
+			[
+				"buildmodel",
+				"src/build/model.py"
+			],
+			[
+				"buildedi",
+				"src/build/language/waterbearlang/editor.html"
+			],
+			[
+				"languageed",
+				"src/build/language/waterbearlang/editor.html"
+			],
+			[
+				"appen",
+				"src/apps/entry.py"
+			],
+			[
+				"appini",
+				"src/apps/__init__.py"
+			],
+			[
+				"apptests",
+				"src/apps/tests.py"
+			],
+			[
+				"appcru",
+				"src/apps/crud.py"
+			],
+			[
+				"appview",
+				"src/apps/view.py"
+			],
+			[
+				"builddisplay",
+				"src/build/module/display/compiler.py"
+			],
+			[
+				"buildbase",
+				"src/build/module/base.py"
+			],
+			[
+				"resourcetabl",
+				"src/resource/table/__init__.py"
+			],
+			[
+				"buildjava",
+				"src/build/language/waterbearlang/javascript.js"
+			],
+			[
+				"buildview",
+				"src/build/language/waterbearlang/view.py"
+			],
+			[
+				"buildjs",
+				"src/build/language/waterbearlang/javascript.js"
+			],
+			[
+				"buildhtml",
+				"src/build/language/waterbearlang/editor.html"
+			],
+			[
+				"page",
+				"src/serve/templates/html_app_page_editor.html"
+			],
+			[
+				"buildvi",
+				"src/build/view.py"
+			],
+			[
+				"buildbuil",
+				"src/build/module/display/build.py"
+			],
+			[
+				"serve",
+				"src/serve/templates/html_app_page_editor.html"
+			],
+			[
+				"app",
+				"src/apps/view.py"
+			],
+			[
+				"apppage",
+				"src/apps/page.py"
+			],
+			[
+				"buildmod",
+				"src/build/model.py"
+			],
+			[
+				"languagescr",
+				"src/build/language/waterbearlang/javascript.js"
+			],
+			[
+				"appschem",
+				"src/apps/schema.py"
+			],
+			[
+				"libsres",
+				"libs/responsehandlers.py"
+			],
+			[
+				"watebearview",
+				"build/language/waterbearlang/view.py"
+			],
+			[
+				"languageview",
+				"build/language/waterbearlang/view.py"
+			],
+			[
+				"appscru",
+				"apps/crud.py"
+			],
+			[
+				"apps__i",
+				"apps/__init__.py"
+			],
+			[
+				"schema",
+				"apps/schema.py"
+			],
+			[
+				"buildinit_",
+				"build/__init__.py"
+			],
+			[
+				"buildcrud",
+				"build/crud.py"
+			],
+			[
+				"build_i",
+				"build/__init__.py"
+			],
+			[
+				"buildmo",
+				"build/model.py"
+			],
+			[
+				"buildtest",
+				"build/tests.py"
+			],
+			[
+				"appspage",
+				"apps/page.py"
+			],
+			[
+				"build_",
+				"build/__init__.py"
+			],
+			[
+				"displaybuild",
+				"build/module/display/build.py"
+			],
+			[
+				"buildini",
+				"build/__init__.py"
+			],
+			[
+				"buildinin",
+				"build/module/invest/__init__.py"
+			],
+			[
+				"buildmode",
+				"build/model.py"
+			],
+			[
+				"displaybuil",
+				"build/module/display/build.py"
+			],
+			[
+				"sub",
+				"libs/subscriber.py"
+			],
+			[
+				"displaytest",
+				"build/module/display/tests.py"
+			],
+			[
+				"schemap",
+				"apps/schema.py"
+			],
+			[
+				"appstests",
+				"apps/tests.py"
+			],
+			[
+				"se",
+				"apps/session.py"
+			],
+			[
+				"jsons",
+				"/C/Development/kosningar/jsons.py"
+			],
+			[
+				"cvsp",
+				"/C/Development/kosningar/csvs.py"
+			],
+			[
+				"my.py",
+				"/C/Users/kjartanaj3479/Desktop/my.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/kjartanjonsson/Documents/Workspace/v01-codeblock/conf/age-mac.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 237.0,
+	"status_bar_visible": true
+}

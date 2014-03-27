@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="vendor/jquery.mobile-1.4.2/jquery.mobile-1.4.2.css" />
+  <!-- 
+  http://www.iconarchive.com/show/circle-icons-by-martz90/video-camera-icon.html
+  http://www.iconarchive.com/show/circle-icons-by-martz90/camera-icon.html
+
+
+  http://www.script-tutorials.com/pinterest-like-script-step-1/
+  -->
+  <style>
+  .unselectable{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;    
+  };
+  .panel_info {
+    text-align: center;
+  }
+  a:link {text-decoration:none;}
+  a:visited {text-decoration:none;}
+  a:hover {text-decoration:none;}
+  a:active {text-decoration:none;}
+  </style>
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  
+  <script src="js/jquery.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+  <script src="vendor/jquery.mobile-1.4.2/jquery.mobile-1.4.2.js"></script>
+
+  <script src="/_utils/script/jquery.js?1.4.2"></script>
+  <script src="http://54.249.245.7/_utils/script/json2.js"></script>
+  <script src="http://54.249.245.7/_utils/script/sha1.js"></script>
+  <script src="http://54.249.245.7/_utils/script/jquery.couch.js"></script>  
+</head>
+<body class="unselectable">
+  <!-- div data-role="page" id="main">
+    <div data-role="panel" id="panel" data-position="left" data-theme="a" data-display="push">
+        <div data-role="controlgroup">
+            <a href="#streams" data-role="button" data-theme="a" onclick="app.showStreams();">History</a>
+            <a href="#settings" data-role="button" data-theme="a">Settings</a>
+        </div>
+        <a href="#synchronize" data-role="button" data-theme="a" onclick="app.sync();">Synchronize</a>
+        <center><div class="panel_info" id="panel_sync_time"></div></center>
+    </div>
+  <div data-role="content"> 
+        <a href="#panel">
+          <img style="float:left;opacity:0.8;height:80x;" src="img/appbar.layout.expand.left.variant.png"/>
+          <h1 style="color:rgb(44, 62, 80);text-align:middle;font-size:24px;">Note book of life</h1>
+        </a><br>
+        <select class="stream_field" name="target" id="target">
+           <option value="*">For every one</option>
+        </select>
+        
+        <fieldset class="ui-grid-a" id="select-recording">
+            <div class="ui-block-a">
+                <a style="height:50px;line-height:50px;" href="#" data-role="button" data-icon="star" data-theme="f" onclick="app.captureMovie();" data-iconpos="right">Record</a>
+            </div>
+            <div class="ui-block-b">
+              <a style="height:50px;line-height:50px;" href="#" data-role="button" data-icon="star" data-theme="f" onclick="app.capturePicture();" data-iconpos="right">Picture</a>
+          </div>
+        </fieldset>        
+      <fieldset class="ui-grid-a" id="select-recording">
+          <div class="ui-block-a">              
+            <input class="stream_field" type="text" name="note" id="note" value="" placeholder="Optional notes"/>
+          </div>
+          <div class="ui-block-b">
+            <select class="stream_field" name="category" id="category">
+               <option value="play">Playing</option>
+               <option value="eating">Eating</option>
+               <option value="sleeping">Sleeping</option>
+               <option value="walking">Walking</option>
+               <option value="other">Other</option>
+            </select> 
+          </div>
+      </fieldset>              
+        <a href="#" data-role="button" data-icon="check" data-theme="b" onclick="app.saveForm();" data-iconpos="right">Note it</a>
+        <a href="#" data-role="button" data-icon="delete" data-theme="c" onclick="app.clearForm();" data-iconpos="right">Clear it</a>
+        <div id="note_record"></div>
+        <div id="log"></div>
+      </div>
+  </div>
+  <div data-role="page" id="settings">
+    <div data-role="content"> 
+      <h3 style="text-align:center;">Settings</h3>
+      <label for="username">User name:</label>
+      <input type="text" name="username" id="username" value="">    
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" value="">
+      <br>
+      <ul id="stream_feeds" data-role="listview" data-inset="true"><li>loading ...</li></ul>
+      <a href="#stream_feed_details" data-role="button" data-icon="plus" data-theme="f" onclick="app.showStreamFeedInfo()" data-iconpos="right">Add board</a>
+      <a href="#main" data-role="button" data-icon="back" data-theme="b" data-iconpos="right">Close</a>
+    </div>
+  </div>
+  <div data-role="page" id="streams">
+    <div data-role="content"> 
+      <h3 style="text-align:center;">History</h3>
+      <ul id="stream_history" data-role="listview" data-inset="true"><li>loading ...</li></ul>
+      <a href="#main" data-role="button" data-icon="back" data-theme="b" data-iconpos="right">Close</a>
+    </div>
+  </div>
+
+  <div data-role="page" id="stream_feed_details">
+    <div data-role="content"> 
+      <h3 style="text-align:center;">Child details</h3>
+      <label for="name">Child name:</label>
+      <input class="stream_feed_info" type="text" name="name" id="name" value="">
+      <label for="email">Parent email:</label>
+      <input class="stream_feed_info" type="email" name="email" id="email" value="">
+      <input type="hidden" name="stream_feed_info_id" id="stream_feed_info_id" value="">
+      <br>
+      <a href="#settings" data-role="button" data-icon="plus" data-theme="f" onclick="app.saveStreamFeedInfo()" data-iconpos="right">Save</a>
+      <a href="#" data-role="button" data-icon="refresh" data-theme="b" data-iconpos="right" onclick="app.resendStreamInformation()">Resend information</a>
+      <a href="#settings" data-role="button" data-icon="back" data-theme="b" data-iconpos="right">Close</a>
+      <br>
+      <a href="#settings" data-role="button" data-icon="delete" data-theme="d" data-iconpos="right">Delete</a>
+    </div>
+  </div -->
+  <div data-role="page" id="main">
+    <div class="fix_header" data-id="allot_header" data-role="header" data-position="fixed">
+      <a id="button_refreshlist" class="fix_button" href="#" data-shadow="false" data-iconshadow="false" data-icon="refresh" data-iconpos="notext" data-ajax="false">refresh</a>
+      <h1 id="page_title_map">Notes</h1>
+      <a class="fix_button page_books_button" href="#record" data-shadow="false" data-iconshadow="false" data-icon="camera" data-iconpos="notext">camera</a>
+    </div><!-- /header -->    
+    <div data-role="content"> 
+      <ul id="items" data-role="listview" data-inset="true"  data-filter="true" data-filter-placeholder="Filter ..."></ul>
+      <div id="items_message">Loading ...</div>
+    </div>
+  </div>
+
+  <div data-role="page" id="stream_feed_details">
+    <div class="fix_header" data-id="allot_header" data-role="header" data-position="fixed">
+      <a class="fix_button" href="#setup" data-shadow="false" data-iconshadow="false" data-icon="back" data-iconpos="notext" data-ajax="false">refresh</a>
+      <h1 id="page_title_map">Share</h1>
+    </div><!-- /header -->    
+    <div data-role="content"> 
+      <label for="name">Name:</label>
+      <input class="stream_feed_info" type="text" name="name" id="name" value="">
+      <label for="email">With email:</label>
+      <input class="stream_feed_info" type="email" name="email" id="email" value="">
+      <input type="hidden" name="stream_feed_info_id" id="stream_feed_info_id" value="">
+      <br>
+      <a href="#setup" data-role="button" data-icon="plus" data-theme="f" onclick="app.saveStreamFeedInfo()" data-iconpos="right">Save</a>
+      <a href="#" data-role="button" data-icon="refresh" data-theme="b" data-iconpos="right" onclick="app.resendStreamInformation()">Resend information</a>
+      <a href="#setup" data-role="button" data-icon="back" data-theme="b" data-iconpos="right">Close</a>
+      <br>
+      <a href="#setup" data-role="button" data-icon="delete" data-theme="d" data-iconpos="right">Delete</a>
+    </div>
+  </div>
+
+  <div data-role="page" id="setup">
+    <div class="fix_header" data-id="allot_header" data-role="header" data-position="fixed">
+      <a class="fix_button" href="#record" data-shadow="false" data-iconshadow="false" data-icon="back" data-iconpos="notext" data-ajax="false">back</a>
+      <h1 id="page_title_map">Setup</h1>
+    </div><!-- /header -->    
+    <div data-role="content"> 
+      
+      <ul id="stream_feeds" data-role="listview" data-inset="true"><li>loading ...</li></ul>
+      <a href="#stream_feed_details" data-role="button" data-icon="plus" data-theme="f" onclick="app.showStreamFeedInfo()" data-iconpos="right">Add board</a>
+
+
+      <a href="#login" data-role="button" data-icon="user" data-theme="a" data-iconpos="right">Login</a>
+
+    </div>
+  </div>
+
+  <div data-role="page" id="item">
+    <div class="fix_header" data-id="allot_header" data-role="header" data-position="fixed">
+      <a class="fix_button button_mainlist" href="#" data-shadow="false" data-iconshadow="false" data-icon="back" data-iconpos="notext" data-ajax="false">back</a>
+      <h1 id="page_title_map">Item</h1>
+    </div><!-- /header -->    
+    <div data-role="content"> 
+      <div id="item_detail_date"></div>
+      <div id="item_detail_images"></div>
+      <div id="item_detail_notes"></div>
+      <a class="button_mainlist" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Close</a>
+    </div>
+  </div>
+
+  <div data-role="page" id="record">
+    <div class="fix_header" data-id="allot_header" data-role="header" data-position="fixed">
+      <a class="fix_button button_mainlist" href="#" data-shadow="false" data-iconshadow="false" data-icon="back" data-iconpos="notext" data-ajax="false">refresh</a>
+      <h1 id="page_title_map">Record</h1>
+      <a class="fix_button page_books_button" href="#setup" data-shadow="false" data-iconshadow="false" data-icon="gear" data-iconpos="notext">settings</a>
+    </div><!-- /header -->    
+    <div data-role="content"> 
+        <select class="stream_field" name="target" id="target">
+           <option value="*">For every one</option>
+        </select>
+        
+        <fieldset class="ui-grid-a" id="select-recording">
+            <div class="ui-block-a">
+              <center>
+                <a href="#" onclick="app.captureMovie();">
+                  <img src="img/video-camera-icon.png" style="padding:10px"/>
+                </a>
+              </center>
+            </div>
+            <div class="ui-block-b">
+              <a onclick="app.capturePicture();">
+                <center>
+                  <img src="img/camera-icon.png" style="padding:10px"/>
+                </center>
+              </a>
+          </div>
+        </fieldset>        
+      <fieldset class="ui-grid-a">
+          <input class="stream_field" type="text" name="note" id="note" value="" placeholder="Optional notes"/>
+      </fieldset>              
+        <a href="#" data-role="button" data-icon="check" data-theme="b" onclick="app.saveForm();" data-iconpos="right">Save</a>
+        <a href="#" data-role="button" data-icon="delete" data-theme="c" onclick="app.clearForm();" data-iconpos="right">Clear</a>
+        <a class="button_mainlist" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Cancel</a>
+        <div id="note_record"></div>
+        <div id="log"></div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div data-role="page" id="login">
+    <div data-role="content"> 
+      <h3 style="text-align:center;">Login</h3>
+      <label for="username">Username:</label>
+      <input class="authentication" type="text" id="authentication_username" value="">
+      <label for="password">Password:</label>
+      <input class="authentication" type="password" id="authentication_password" value="">            
+      <a id="authentication_login" data-role="button" data-icon="back" data-theme="b" data-iconpos="right">Login</a>
+      <br>
+      <a id="authentication_register_form" data-role="button" data-icon="user" data-theme="d" data-iconpos="right">Register</a>
+    </div>
+  </div>
+
+  <div data-role="page" id="register">
+    <div data-role="content"> 
+      <h3 style="text-align:center;">Register</h3>
+      <label for="email">Email:</label>
+      <input class="authentication" type="email" id="authentication_email" value="">      
+      <label for="password">Password (again):</label>
+      <input class="authentication" type="password" id="authentication_password_again" value="">            
+      <a id="authentication_register" data-role="button" data-icon="user" data-theme="b" data-iconpos="right">Register</a>
+      <a class="button_mainlist" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Cancel</a>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="js/index.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/media_uploader.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/pouchdb.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/base64.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/md5.js" charset="utf-8"></script>
+  <SCRIPT TYPE="text/javascript" src="js/mailgun.js" charset="utf-8"></SCRIPT>
+  <SCRIPT TYPE="text/javascript" src="js/utils_phonegap.js" charset="utf-8"></SCRIPT>
+
+  <script type="text/javascript">
+    document.addEventListener('deviceready', function(){app.initialize();}, false);
+  </script>
+
+</body>
+</html>
