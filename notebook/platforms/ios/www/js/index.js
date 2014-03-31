@@ -28,7 +28,7 @@ var app = {
         $.couch.urlPrefix = "http://54.249.245.7/";
         app.client_doc_default = {feeds:{}, image_width: 128};
         app.media_files = []; //additional data store for stream (camera data)
-        this.receivedEvent('deviceready');
+        app.receivedEvent('deviceready');
     },
         // deviceready Event Handler
         //

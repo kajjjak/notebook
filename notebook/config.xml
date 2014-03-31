@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.agamecompany.childnotebook2" version="0.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Note Book</name>
+<widget id="com.agamecompany.notebook" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>NoteBook</name>
     <description>
-        Children notes
+        A sample Apache Cordova application that responds to the deviceready event.
     </description>
-    <author email="kjartan@agamecompany.com" href="http://agamecompany.com">
-        aGameCompany team
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -21,5 +21,7 @@
 	<feature name="FileTransfer">
 	    <param name="ios-package" value="CDVFileTransfer" />
 	</feature>	
-	<preference name="DisallowOverscroll" value="true" />    
+	<preference name="DisallowOverscroll" value="true" />
+    <preference name="EnableViewportScale" value="true"/>
+    
 </widget>

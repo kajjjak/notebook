@@ -1,4 +1,61 @@
+/*
 
+Media receaver .../upload.php?id=1231231231
+
+<?php
+function image_fix_orientation($filename) {
+    $exif = exif_read_data($filename);
+    $degrees = 0;
+    $orient = true;
+    if (!empty($exif['Orientation'])) {
+        switch ($exif['Orientation']) {
+            case 3:
+                $degrees = 180;
+                break;
+            case 6:
+                $degrees = -90;
+                $orient = false;
+                break;
+            case 8:
+                $degrees = 90;
+                $orient = false;
+                break;
+        }
+    }
+    $source = imagecreatefromjpeg($filename);
+    $rotate = imagerotate($source, $degrees, 0);
+    $size = getimagesize($filename);
+    $ratio = $size[0]/$size[1]; // width/height
+    if( $ratio > 1) {
+         $width = 500;
+         $height = 500/$ratio;
+    } else {
+         $width = 500*$ratio;
+         $height = 500;
+    }
+    if($orient){
+        $rotate = imagescale($rotate, $width, $height, IMG_BICUBIC_FIXED);
+    }else{
+        $rotate = imagescale($rotate, $height, $width, IMG_BICUBIC_FIXED);
+    }
+    imagejpeg($rotate, $filename);
+    // Free the memory
+    imagedestroy($source);
+    imagedestroy($rotate);
+}
+
+$uploads_dir = '../media/childnotebook_files';
+$file_src = $_GET["id"];
+$filepath = "$uploads_dir/$file_src";
+if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)){
+ chmod($filepath, 0755);
+ image_fix_orientation($filepath);
+ image_fix_scale($filenpath);
+}
+?>
+
+
+*/
 MEDIA_SERVER_URL = "http://media.agamecompany.com/childnotebook_files/";
 // A button will call this function
 //
@@ -39,7 +96,12 @@ function captureUploadPicture(callback_success, options){
         encodingType: Camera.EncodingType.JPEG,
         mediaType: Camera.MediaType.PICTURE,
         destinationType: Camera.DestinationType.FILE_URI });
-    navigator.camera.getPicture(onSuccess, onFail, options);
+    navigator.camera.getPicture(onSuccess, onFail, {
+                                quality: 50,
+                                sourceType: Camera.PictureSourceType.CAMERA,
+                                encodingType: Camera.EncodingType.JPEG,
+                                mediaType: Camera.MediaType.PICTURE,
+                                destinationType: Camera.DestinationType.FILE_URI });
 }
 
 function uploadPhoto(imageURI, alias, callback_success) {

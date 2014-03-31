@@ -8,7 +8,6 @@
   http://www.iconarchive.com/show/circle-icons-by-martz90/video-camera-icon.html
   http://www.iconarchive.com/show/circle-icons-by-martz90/camera-icon.html
 
-
   http://www.script-tutorials.com/pinterest-like-script-step-1/
   -->
   <style>
@@ -31,13 +30,11 @@
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
   
   <script src="js/jquery.js"></script>
-  <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
   <script src="vendor/jquery.mobile-1.4.2/jquery.mobile-1.4.2.js"></script>
 
-  <script src="/_utils/script/jquery.js?1.4.2"></script>
-  <script src="http://54.249.245.7/_utils/script/json2.js"></script>
-  <script src="http://54.249.245.7/_utils/script/sha1.js"></script>
-  <script src="http://54.249.245.7/_utils/script/jquery.couch.js"></script>  
+  <script type="text/javascript">
+    document.addEventListener('deviceready', function(){app.initialize();}, false);
+  </script>
 </head>
 <body class="unselectable">
   <!-- div data-role="page" id="main">
@@ -256,10 +253,13 @@
   <script type="text/javascript" src="js/md5.js" charset="utf-8"></script>
   <SCRIPT TYPE="text/javascript" src="js/mailgun.js" charset="utf-8"></SCRIPT>
   <SCRIPT TYPE="text/javascript" src="js/utils_phonegap.js" charset="utf-8"></SCRIPT>
-
-  <script type="text/javascript">
-    document.addEventListener('deviceready', function(){app.initialize();}, false);
-  </script>
+  <!-- 
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+  <script src="/_utils/script/jquery.js?1.4.2"></script>
+  <script src="http://54.249.245.7/_utils/script/json2.js"></script>
+  <script src="http://54.249.245.7/_utils/script/sha1.js"></script>
+  -->
+  <script src="http://54.249.245.7/_utils/script/jquery.couch.js"></script>  
 
 </body>
 </html>

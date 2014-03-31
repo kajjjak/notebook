@@ -552,6 +552,14 @@
 	},
 	"file_history":
 	[
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notused/childnotebook.notused/childnotebook copy/www/config.xml",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/js/script.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/www/js/index.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/www/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/config.xml",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/README.md",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/app.js",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/www/js/index.js",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/www/index.html",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/web/index.html",
@@ -671,15 +679,7 @@
 		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/preview.js",
 		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_less.js",
 		"/Users/kjartanjonsson/Downloads/FullScreenMario-master/library.js",
-		"/Users/kjartanjonsson/Downloads/FullScreenMario-master/sprites.js",
-		"/Users/kjartanjonsson/Downloads/FullScreenMario-master/Maps/World34.js",
-		"/Users/kjartanjonsson/Downloads/FullScreenMario-master/mario.css",
-		"/Users/kjartanjonsson/Downloads/Plugin plugin-installer/readme.md",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/editor/views.py",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/font-awesome/3.2.1/css/font-awesome.css",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_css.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/editor/fixtures/fixture.json",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/tests/test_files.js"
+		"/Users/kjartanjonsson/Downloads/FullScreenMario-master/sprites.js"
 	],
 	"find":
 	{
@@ -723,6 +723,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"renderCard",
 			"http",
 			"loadStreams",
 			"loadListCache",
@@ -849,8 +850,7 @@
 			"== null",
 			"layer.watch",
 			"locatePlayer",
-			"setWatchPlayerPosition",
-			"game_state.player.watch"
+			"setWatchPlayerPosition"
 		],
 		"highlight": true,
 		"in_selection": false,

@@ -17,6 +17,15 @@
    }
 }
 
+
+[Error] TypeError: 'undefined' is not an object (evaluating 'app.client_doc.feeds[$("#target").val()].name')
+    saveForm (index.js, line 398)
+    onclick (index.html, line 215)
+
+
+http://forums.realmacsoftware.com/discussion/56056/images-taken-in-landscape-orientation-from-iphone-is-rotated-90-degrees-in-blog
+http://iphonephotographyschool.com/iphone-photos-upside-down/
+http://stackoverflow.com/questions/7489742/php-read-exif-data-and-adjust-orientation
  */
 
 var app = {
@@ -28,7 +37,7 @@ var app = {
         $.couch.urlPrefix = "http://54.249.245.7/";
         app.client_doc_default = {feeds:{}, image_width: 128};
         app.media_files = []; //additional data store for stream (camera data)
-        this.receivedEvent('deviceready');
+        app.receivedEvent('deviceready');
     },
         // deviceready Event Handler
         //

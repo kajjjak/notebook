@@ -39,7 +39,12 @@ function captureUploadPicture(callback_success, options){
         encodingType: Camera.EncodingType.JPEG,
         mediaType: Camera.MediaType.PICTURE,
         destinationType: Camera.DestinationType.FILE_URI });
-    navigator.camera.getPicture(onSuccess, onFail, options);
+    navigator.camera.getPicture(onSuccess, onFail, {
+                                quality: 50,
+                                sourceType: Camera.PictureSourceType.CAMERA,
+                                encodingType: Camera.EncodingType.JPEG,
+                                mediaType: Camera.MediaType.PICTURE,
+                                destinationType: Camera.DestinationType.FILE_URI });
 }
 
 function uploadPhoto(imageURI, alias, callback_success) {
