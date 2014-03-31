@@ -1,0 +1,3 @@
+{"total_rows":1,"offset":0,"rows":[
+{"id":"86ce76b41f6681dff335841d2100d7ef","key":null,"value":{"_id":"86ce76b41f6681dff335841d2100d7ef","_rev":"1-42996d7fefd149ba201a45ddd61a8433","target":"dbdce4eb535203a997e5321551b680ca","note":"","date":1396273628344,"stream":"dbdce4eb535203a997e5321551b680ca","owner":"","files":[{"name":"capturedvideo.MOV","localURL":null,"type":"video/quicktime","lastModifiedDate":1396273534000,"size":446235,"start":0,"end":0,"fullPath":"/private/var/mobile/Applications/B55A0EAA-7BD5-4C4B-9522-3194E1286461/tmp/capture/capturedvideo.MOV","file_name":"1396273536147.mov","url":"http://media.agamecompany.com/childnotebook_files/1396273536147.mov"}],"subject":"Selfie","source":"kajjak"}}
+]}

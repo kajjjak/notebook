@@ -44,6 +44,7 @@ function renderCard(item){
     var pin_id = item._id;
     var pictures = "";
     if($("#"+pin_id).length){ return; }
+    if(item.destroyed) { return; }
     for (var f in item.files){
         if (item.files[f].type.indexOf("image") === 0){
             pictures = pictures + '<img class="rotate_90" src="' + item.files[f].url + '"> ';
