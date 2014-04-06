@@ -184,7 +184,7 @@ a {
     position: fixed;
     top: 40%;
     visibility: hidden;
-    width: 550px;
+    width: 80%;
     z-index: 10;
 
     -webkit-transform: translate(-50%, -50%);
@@ -360,4 +360,30 @@ a {
 .comment textarea:focus {
     background-color: #FFFFFF;
     box-shadow: 0 1px 1px rgba(34, 29, 29, 0.1) inset;
+}
+
+.view_card_media {
+
+}
+
+.view_card_info_subject {
+
+}
+.view_card_info_note {
+
+}
+.view_card_info_source {
+
+}
+
+.view_card_info_date {
+
+}
+
+.menu_board_item_visible {
+    background-color: black;
+}
+
+.menu_board_item_hidden {
+    background-color: white;
 }

@@ -86,7 +86,7 @@ function captureUploadPicture(callback_success, options){
         uploadPhoto(imageURI, file_name, callback_success);
         if(callback_success){callback_success(1, {url:MEDIA_SERVER_URL + file_name, file_name:file_name, uri:imageURI, type:"image/jpeg"});}
     }
-    function onFail(message) {
+    function onFail(error) {
         var msg = 'An error occurred while capturing picture: ' + error.code;
         navigator.notification.alert(msg, null, 'Uh oh!');
     }

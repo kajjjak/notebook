@@ -129,6 +129,7 @@
     <div data-role="content"> 
       <ul id="items" data-role="listview" data-inset="true"  data-filter="true" data-filter-placeholder="Filter ..."></ul>
       <div id="items_message">Loading ...</div>
+      <!-- div class="main_container"></div -->
     </div>
   </div>
 
@@ -176,8 +177,13 @@
     <div data-role="content"> 
       <div id="item_detail_date"></div>
       <div id="item_detail_images"></div>
-      <div id="item_detail_notes"></div>
-      <a class="button_mainlist" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Close</a>
+      <input type="text" id="item_detail_notes"></input>
+      <input type="hidden" id="item_detail_id"></input>
+      <a class="button_mainlist" data-role="button" data-icon="back" data-theme="b" data-iconpos="right">Close</a>
+      <a id="button_saveitem" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Save</a>
+      <br>
+      <a id="button_removeitem" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Delete</a>
+
     </div>
   </div>
 
@@ -188,8 +194,8 @@
       <a class="fix_button page_books_button" href="#setup" data-shadow="false" data-iconshadow="false" data-icon="gear" data-iconpos="notext">settings</a>
     </div><!-- /header -->    
     <div data-role="content"> 
-        <select class="stream_field" name="target" id="target">
-           <option value="*">For every one</option>
+        <select class="stream_field" name="target" id="target" onchange="app.nowSelectedStream()">
+           <option value=""></option>
         </select>
         
         <fieldset class="ui-grid-a" id="select-recording">
@@ -212,8 +218,7 @@
           <input class="stream_field" type="text" name="note" id="note" value="" placeholder="Optional notes"/>
       </fieldset>              
         <a href="#" data-role="button" data-icon="check" data-theme="b" onclick="app.saveForm();" data-iconpos="right">Save</a>
-        <a href="#" data-role="button" data-icon="delete" data-theme="c" onclick="app.clearForm();" data-iconpos="right">Clear</a>
-        <a class="button_mainlist" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Cancel</a>
+        <!-- a class="button_mainlist" onclick="app.clearForm();" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Cancel</a -- >
         <div id="note_record"></div>
         <div id="log"></div>
       </div>
@@ -237,15 +242,18 @@
   <div data-role="page" id="register">
     <div data-role="content"> 
       <h3 style="text-align:center;">Register</h3>
+      Authentication not found. Please register by entering your email address (for recovery purposes) and password.
+      If you already have registered please try to login again.
       <label for="email">Email:</label>
       <input class="authentication" type="email" id="authentication_email" value="">      
       <label for="password">Password (again):</label>
       <input class="authentication" type="password" id="authentication_password_again" value="">            
       <a id="authentication_register" data-role="button" data-icon="user" data-theme="b" data-iconpos="right">Register</a>
-      <a class="button_mainlist" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Cancel</a>
+      <a class="#login" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Login</a>
     </div>
   </div>
 
+  <!-- SCRIPT TYPE="text/javascript" src="js/jquery.masonry.min.js" charset="utf-8"></SCRIPT -->
   <script type="text/javascript" src="js/index.js" charset="utf-8"></script>
   <script type="text/javascript" src="js/media_uploader.js" charset="utf-8"></script>
   <script type="text/javascript" src="js/pouchdb.min.js" charset="utf-8"></script>
@@ -253,8 +261,9 @@
   <script type="text/javascript" src="js/md5.js" charset="utf-8"></script>
   <SCRIPT TYPE="text/javascript" src="js/mailgun.js" charset="utf-8"></SCRIPT>
   <SCRIPT TYPE="text/javascript" src="js/utils_phonegap.js" charset="utf-8"></SCRIPT>
-  <!-- 
+
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+  <!-- 
   <script src="/_utils/script/jquery.js?1.4.2"></script>
   <script src="http://54.249.245.7/_utils/script/json2.js"></script>
   <script src="http://54.249.245.7/_utils/script/sha1.js"></script>

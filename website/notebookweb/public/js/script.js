@@ -2,6 +2,7 @@
  */
 
 var server_url = "http://54.249.245.7/childnotebook";
+var cards = {};
 
 function enableComments(){
     // onclick event handler (for comments)
@@ -13,8 +14,24 @@ function enableComments(){
     });         
 }
 
-function displayBoard(self){
-    fetchBoard(self.id);
+function displayBoard(board_id, hide){
+    if(hide == undefined){ //toggle mode
+        hide = !hide_boards[board_id];
+    }
+    if(hide){
+        for (var i in cards){
+            var card = cards[i];
+            if(card.stream == board_id){
+                m.masonry('remove', $("#"+i));
+            }
+        }
+        m.masonry( 'reload' );
+    }else{
+        fetchBoard(board_id);
+    }
+    $("#"+board_id).attr('class', getGUIBoardMenuItemStyle(hide));
+    hide_boards[board_id] = hide;
+    localStorage.setItem("hide_boards", JSON.stringify(hide_boards));
 }
 
 function fetchBoard(stream_key){
@@ -24,20 +41,74 @@ function fetchBoard(stream_key){
     });
 }
 
+/*copy*/
 function renderBoard(doc){
     for (var i in doc.rows){
         renderCard(doc.rows[i].value);
+        cards[doc.rows[i].value._id] = doc.rows[i].value;
     }
     m.masonry('reload');
     enableComments();
 }
+
+/*copy*/
 function getDoubleDigits(f){
     var s = f+"";
     if (s.length == 1){return "0"+s;}
     return s;
 }
+/*copy*/
 function renderDate(d){
     return d.getFullYear() + "." + getDoubleDigits(d.getMonth()) + "." + getDoubleDigits(d.getDate()) + " " + getDoubleDigits(d.getHours()) + ":" + getDoubleDigits(d.getMinutes());
+}
+/*copy*/
+function renderMedia(item_file){
+    var pictures = "";
+    if (item_file.type.indexOf("image") === 0){
+        pictures = '<img src="' + item_file.url + '"> ';
+    }else{
+        pictures = '<video src="'+item_file.url+'" controls width="192px"></video>';
+    }    
+    return pictures;
+}
+
+function deleteCard(self){
+    var item_id = self.id.replace("delete_", "");
+    $.getJSON("/api/card/"+item_id+"/delete/", function(){
+        m.masonry('remove', $("#"+item_id));
+        m.masonry('reload');
+        location.href="#close";
+    });
+}
+
+function updateCard(self){
+    var item_id = self.id.replace("update_", "");
+    var text = $("#view_card_info_note").val();
+    $("#"+item_id+"_note").html(text);
+    $.getJSON("/api/card/"+item_id+"/update/"+text, function(){
+        m.masonry('reload');
+        location.href="#close";
+    });
+
+}
+
+function displayCard(self){
+    var item = cards[self.id];
+    var pictures = "";
+    for (var f in item.files){
+        pictures = pictures + "<span class='view_card_media'>" + renderMedia(item.files[f]) + "</span>";
+    }
+    var heading = "";
+    //heading = heading + "<p class='view_card_info_subject'>"+item.subject+"</p>";
+    heading = heading + "<input id='view_card_info_note' type='text' value='"+item.note+"' />";
+    heading = heading + "<p class='view_card_info_source'>"+item.source+"</p>";
+    heading = heading + "<p class='view_card_info_date'>"+renderDate(new Date(item.date))+"</p>";
+    $("#view_card_title").html(item.note || item.subject || "Card");
+    var menu = "";
+    menu = menu + "<button id='delete_"+item._id+"' onclick='deleteCard(this)'>delete</button>";
+    menu = menu + "<button id='update_"+item._id+"' onclick='updateCard(this)'>update</button>";
+    $("#view_card_content").html(heading + pictures + menu);
+    setTimeout(function(){location.href="#view_card";}, 100);
 }
 
 function renderCard(item){
@@ -46,17 +117,12 @@ function renderCard(item){
     if($("#"+pin_id).length){ return; }
     if(item.destroyed) { return; }
     for (var f in item.files){
-        if (item.files[f].type.indexOf("image") === 0){
-            pictures = pictures + '<img class="rotate_90" src="' + item.files[f].url + '"> ';
-        }else{
-            pictures = pictures + '<video class="rotate_90" src="'+item.files[f].url+'" controls width="192px"></video>';
-        }
+        pictures = pictures + renderMedia(item.files[f]);
     }
     if (!pictures.length){ pictures = ""; }
-
     var pin_element = ' \
     <!-- pin element 1 --> \
-    <div class="pin" id="'+pin_id+'"> \
+    <div class="pin" id="'+pin_id+'" onclick="displayCard(this)"> \
         <div class="holder"> \
             <!-- div class="actions" pin_id="'+pin_id+'"> \
                 <a href="#" class="button">Repin</a> \
@@ -67,7 +133,8 @@ function renderCard(item){
                 ' + pictures + '\
             </a> \
         </div> \
-        <p class="desc">' + item.subject + '<br>' + item.note + '</p> \
+        <p class="desc">' + item.subject + '</p> \
+        <p class="desc" id="'+pin_id+'_note">' + item.note + '</p> \
         <p class="info"> \
             ' + renderDate(new Date(item.date)) + ' <i style="float:right;">' + item.source + '</i> \
         </p> \
@@ -77,22 +144,30 @@ function renderCard(item){
             <button type="button" class="button">Comment</button> \
         </form --> \
     </div>';
-    m.append(pin_element);
+    m.prepend(pin_element);
 
 }
-
+function getGUIBoardMenuItemStyle(b){
+    var menu_style = "menu_board_item_visible";
+    if(b){
+        menu_style = "menu_board_item_hidden";
+    }
+    return menu_style;
+}
 function updateBoardsMenu(){
-    var user_id = "23e4ed12cf4643dbebcdd4e6b1869be2";
+    var user_id = $("#user_id").val() || "e50d0be05bf25a909ef1d96a0f62800d"; //FIXME
     var url = server_url + "/"+user_id;
-    $("#board_menu").html("");
+    window.hide_boards = JSON.parse(localStorage.getItem("hide_boards") || "{}");
+    $("#board_menu").html("");    
     $.getJSON(url, function(item){
         var menu = "";
         for (var i in item.feeds){
             var feed = item.feeds[i];
-            menu = menu + '<li><a id="'+i+'" href="#" onclick="displayBoard(this)">' + feed.name + '</a></li>';
+            displayBoard(i, hide_boards[i]);
+            menu = menu + '<li><a id="'+i+'" href="#" onclick="displayBoard(this.id)" class="'+getGUIBoardMenuItemStyle(hide_boards[i])+'">' + feed.name + '</a></li>';
         }
         $("#board_menu").append(menu);
-    });    
+    });
 }
 
 $(document).ready(function(){

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="utf-8" />
+        <meta name="author" content="aGame Company" />
+        <title>Note book</title>
+
+        <!-- add styles -->
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+
+        <!-- add scripts -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.masonry.min.js"></script>
+        <script src="js/script.js"></script>
+    </head>
+    <body>
+        <!-- header panel -->
+        <div class="header_panel">
+
+            <!-- logo -->
+            <a href="#" class="logo"></a>
+
+            <!-- search form -->
+            <form action="" method="get" class="search">
+                <input autocomplete="off" name="q" size="27" placeholder="Search" type="text" />
+                <input name="search" type="submit" />
+            </form>
+
+            <!-- navigation menu -->
+            <ul class="nav">
+                <li><a href="#add_form" id="login_pop">+ Add</a></li>
+                <li>
+                    <a href="#">Boards<span></span></a>
+                    <ul id="board_menu"></ul>
+                </li>
+                <li>
+                    <a href="#">Profile<span></span></a>
+                    <ul>
+                        <li><a href="#">Invite Friends</a></li>
+                        <!-- li class="div"><a href="#">Settings</a></li -->
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- upload form -->
+        <a href="#x" class="overlay" id="add_form"></a>
+        <div class="popup">
+            <div class="header">
+                <a class="close" href="#close">x</a>
+                <h2>Upload a Pin</h2>
+            </div>
+            <form>
+                <input type="file" name="image_file" id="image_file" onchange="" />
+            </form>
+        </div>
+
+        <a href="#x" class="overlay" id="view_card"></a>
+        <div class="popup">
+            <div class="header">
+                <a class="close" href="#close">x</a>
+                <h2 id="view_card_title"></h2>
+            </div>
+            <div id="view_card_content" class="card"></div>
+        </div>
+
+
+        <!-- main container -->
+        <div class="main_container"></div>
+
+        <!-- authentication variables -->
+        <input type="hidden" id="user_id" value="<%= user._id %>">
+        <input type="hidden" id="user_name" value="<%= user.username %>">
+        <input type="hidden" id="user_email" value="<%= user.email %>">
+    </body>
+</html>
+
+<!-- doctype html>
+<html>
+<head>
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+
+		<div class="col-sm-6">
+			<div class="well">
+				<h3><span class="fa fa-user"></span> Local</h3>
+
+				<% if (user) { %>
+					<p>
+						<strong>id</strong>: <%= user._id %><br>
+						<strong>user name</strong>: <%= user.username %><br>
+						<strong>email</strong>: <%= user.email %><br>
+						<strong>hash</strong>: <%= user.hash %>
+					</p>
+					
+					<a href="/unlink/local" class="btn btn-default">Unlink</a>
+				<% } else { %>
+					<a href="/connect/local" class="btn btn-default">Connect Local</a>
+				<% } %>
+
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+
+				<% if (user.facebook) { %>
+					<p>
+						<strong>id</strong>: <%= user.facebook.id %><br>
+						<strong>token</strong>: <%= user.facebook.token %><br>
+						<strong>email</strong>: <%= user.facebook.email %><br>
+						<strong>name</strong>: <%= user.facebook.name %><br>
+					</p>
+
+					<a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
+				<% } else { %>
+					<a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
+				<% } %>
+
+			</div>
+		</div>
+	</div>
+	<div class="row">
+
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-info"><span class="fa fa-twitter"></span> Twitter</h3>
+
+				<% if (user.twitter) { %>
+					<p>
+						<strong>id</strong>: <%= user.twitter.id %><br>
+						<strong>token</strong>: <%= user.twitter.token %><br>
+						<strong>display name</strong>: <%= user.twitter.displayName %><br>
+						<strong>username</strong>: <%= user.twitter.username %>
+					</p>
+
+					<a href="/unlink/twitter" class="btn btn-info">Unlink</a>
+				<% } else { %>
+					<a href="/connect/twitter" class="btn btn-info">Connect Twitter</a>
+				<% } %>
+
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
+
+				<% if (user.google) { %>
+					<p>
+						<strong>id</strong>: <%= user.google.id %><br>
+						<strong>token</strong>: <%= user.google.token %><br>
+						<strong>email</strong>: <%= user.google.email %><br>
+						<strong>name</strong>: <%= user.google.name %>
+					</p>
+
+					<a href="/unlink/google" class="btn btn-danger">Unlink</a>
+				<% } else { %>
+					<a href="/connect/google" class="btn btn-danger">Connect Google</a>
+				<% } %>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="text-center">
+		<p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
+		<p>Visit the <a href="http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local">tutorial</a>.</p>
+	</div>
+
+</div>
+</body>
+</html -->
+

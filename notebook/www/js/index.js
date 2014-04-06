@@ -61,27 +61,34 @@ var app = {
             app.syncTimer();
         }
     },
+    hasValidLoginAuthentication: function(){
+        return ($("#authentication_password").val() != "") && ($("#authentication_username").val() != "");
+    },
     registerButtons: function(){
         $("#authentication_login").click(function(){
             app.client_doc.username = $("#authentication_username").val();
-            app.client_doc.email = $("#authentication_email").val();
-            app.client_uid = app.client_doc.hash = CryptoJS.MD5(app.client_doc.username + "-" + $("#authentication_password").val()) + "";
-            $.mobile.changePage("#main");
-            app.fetchConfig(null, function(){
-                $.mobile.changePage("#register");    
-            }); //should exist
+            app.client_doc.email = app.getMailInvitation($("#authentication_email").val());
+            if (!app.hasValidLoginAuthentication()){
+                app.alertMessage("User name and password required");
+            }else{
+                app.client_uid = app.client_doc.hash = CryptoJS.MD5(app.client_doc.username + "-" + $("#authentication_password").val()) + "";
+                $.mobile.changePage("#main");
+                app.fetchConfig(null, function(){
+                    $.mobile.changePage("#register");
+                }); //should exist                
+            }
         });
         $("#authentication_register_form").click(function(){
             $.mobile.changePage("#register");
         });
         $(".button_mainlist").click(function(){
-            $.mobile.changePage("#main");
+            app.showList();
         });        
         $("#authentication_register").click(function(){
             if($("#authentication_password").val() == $("#authentication_password_again").val()){
                 console.info("Sending email to " + $("#authentication_email").val());
                 app.client_doc.username = $("#authentication_username").val();
-                app.client_doc.email = $("#authentication_email").val();
+                app.client_doc.email = app.getMailInvitation($("#authentication_email").val());
                 app.client_uid = app.client_doc.hash = CryptoJS.MD5(app.client_doc.username + "-" + $("#authentication_password").val()) + "";
                 app.saveClientInfo();
                 $.mobile.changePage("#record");
@@ -92,8 +99,20 @@ var app = {
             $("#items").html("");            
             app.loadList();
         });
+        $("#button_removeitem").click(function(){
+            app.removeItem();
+            app.showList();
+        });
+        $("#button_saveitem").click(function(){
+            app.editItem();
+            app.showList();
+        });
         $("#authentication_username").val(app.client_doc.username);
-        $("#authentication_email").val(app.client_doc.email);
+        if(app.client_doc.email){
+            $("#authentication_email").val(app.client_doc.email.address);
+        }else{
+            $("#authentication_email").val("");
+        }
     },
     loadConfigCache: function(){
         app.client_doc = JSON.parse(localStorage.getItem("config") || "null");
@@ -102,12 +121,17 @@ var app = {
             $.mobile.changePage("#login");
             return false;
         }else{
-            return true;   
+            app.client_uid = app.client_doc._id;
+            return true;
         }
     },
     saveConfigCache: function(doc){
         doc = doc || app.client_doc;
         localStorage.setItem("config", JSON.stringify(doc));
+    },
+    showList: function(){
+        app.loadList();
+        $.mobile.changePage("#main");
     },
     loadList: function(){
         //checks for username and password hash
@@ -120,7 +144,7 @@ var app = {
     },
     saveStreams: function(){
         var doc = app.client_doc;
-        app.saveData(doc, true);
+        app.saveData(doc, null);
     },
     fetchConfig: function(callback_success, callback_failure){
         if(!app.client_uid){ return; }
@@ -137,7 +161,7 @@ var app = {
     },
     loadStreams: function(doc){
         app.saveConfigCache(doc);
-        app.showStreamFeeds();
+        app.showStreamFeeds(true);
         app.showStreamFeedsSelection();
     },
     getItem: function(item_id){
@@ -149,12 +173,28 @@ var app = {
         if(!item){return;}
         $("#item_detail_date").html("" + app.renderDate(new Date(item.date)));
         $("#item_detail_images").html(app.renderMedia(item, 'width="100%"', "controls"));
-        $("#item_detail_notes").html("notes " + item.note);
+        $("#item_detail_notes").val(item.note);
+        $("#item_detail_id").val(self.id);
         $.mobile.changePage("#item");
+    },
+    editItem: function(item_id){
+        var item = app.getItem(item_id || $("#item_detail_id").val());
+        if(!item){return;}
+        item.note = $("#item_detail_notes").val();
+        app.saveData(item);
+        $("#items").html("");
+    },
+    removeItem: function(item_id){
+        var item = app.getItem(item_id || $("#item_detail_id").val());
+        if(!item){return;}
+        item.destroyed = new Date().getTime();
+        app.saveData(item);
+        $("#items").html("");
+
     },
     buildList: function(){
         $("#items_message").html("");
-        $("#items").html("");
+        //$("#items").html("");
         app.client_lst = {};
         app.feeds = [app.client_uid];
         for (var i in app.client_doc.feeds){ app.feeds.push(i); }
@@ -189,21 +229,37 @@ var app = {
         if (item.files[f].type.indexOf("image") === 0){
             images = images + '<img border="0" src="'+item.files[f].url+'" alt="" ' + size + ' />'; //'<img src="'+item.files[f].url+'" '+size+' />';
         }else{
-            images = images + '<video src="'+item.files[f].url+'" ' + controls + ' ' + size + '></video>';
+            if(item.files[f].type == "video/quicktime"){
+                images = images + '<video src="'+item.files[f].url+'" ' + controls + ' ' + size + '></video>';
+            }else{
+                images = images + '<EMBED SRC="'+item.files[f].url+'" ' + size + ' AUTOPLAY=false CONTROLLER=true LOOP=false PLUGINSPAGE=http://www.apple.com/quicktime/"></EMBED>';    
+            }
+            
         }
         if (maxone) {return images;}
       }
       return images;
     },
+    renderListItem: function(item, refresh){
+        /*
+            app.renderListItem({"date":new Date().getTime(), "note":"test", "files":[{"url":"http://media.agamecompany.com/childnotebook_files/1396556114546.jpeg", "type":"image/jpeg"}]});
+        */
+        time = app.renderDate(new Date(item.date));
+        images = app.renderMedia(item, 'height="80px"', '', true);
+        $("#items").prepend('<li><a class="page_areas_button" onclick="app.loadItem(this)" href="#" id="'+item._id+'"  ">'+images+'<p>'+ item.note + '</p><p><i>'+item.source+'</i></p><p class="ui-li-aside">'+time+'</p></a> </li>');
+        if(refresh){
+            $("#items").listview().listview("refresh");
+        }
+
+    },
     renderList: function(){
         for (var b in app.client_lst){
             var item = app.client_lst[b];
             var time, images = "";
+            if (item.destroyed){ continue; }
             if ($("#"+item._id).length){ //check if rendered
             }else{
-                time = app.renderDate(new Date(item.date));
-                images = app.renderMedia(item, 'height="80px"', '', true);
-                $("#items").append('<li><a class="page_areas_button" onclick="app.loadItem(this)" href="#" id="'+item._id+'"  ">'+images+'<p>'+ item.note + '</p><p><i>'+item.source+'</i></p><p class="ui-li-aside">'+time+'</p></a> </li>');
+                app.renderListItem(item, false);
             }
         }
         $("#items").listview().listview("refresh");
@@ -294,6 +350,7 @@ var app = {
     },
         */
     showStreamFeeds: function() {
+    
         $("#stream_feeds").empty();
         for(var i in app.client_doc.feeds){
             var row = app.client_doc.feeds[i];
@@ -314,13 +371,17 @@ var app = {
             return;
         }else{
             $(".stream_feed_info#name").val(feed_info.name);
-            $(".stream_feed_info#email").val(feed_info.email);
+            if(feed_info.email){
+                $(".stream_feed_info#email").val(feed_info.email.address);
+            }else{
+                $(".stream_feed_info#email").val("");
+            }
             $("#stream_feed_info_id").val(feed_id);
         }
     },
     showStreamFeedsSelection: function(){
         $(".stream_field#target").empty();
-        $(".stream_field#target").append('<option value="*" selected>Every one</option>');
+        $(".stream_field#target").append('<option value="" selected></option>');
         for(var i in app.client_doc.feeds){
             var feed_info = app.client_doc.feeds[i];
             $(".stream_field#target").append('<option value="' + i + '">' + feed_info.name + '</option>');
@@ -338,16 +399,19 @@ var app = {
             var attr = $(this).context.id;
             if(attr){
                 if (attr == "email"){
-                    app.client_doc.feeds[app.selected_feed][attr] = $(this).val().split(";");
-                }else{
-                    app.client_doc.feeds[app.selected_feed][attr] = $(this).val();
+                    var emails = $(this).val().split(";");
+                    app.client_doc.feeds[app.selected_feed][attr] = [];
+                    for (var i in emails){
+                        emails.push(app.getMailInvitation(emails[i]));
+                    }
+                    app.client_doc.feeds[app.selected_feed][attr] = emails;
                 }
             }
         });
         setTimeout(app.saveClientInfo, 800);
     },
     saveClientInfo: function(){
-        app.client_doc._id = app.client_uid;
+        app.client_doc._id = app.client_doc._id || app.client_uid;
         app.saveData(app.client_doc, function(client_doc){
             if(client_doc.ok){
                 app.client_doc._rev = client_doc.rev;
@@ -360,19 +424,11 @@ var app = {
     log: function(msg){
         //$("#log").html(msg);
     },
-    saveData: function(doc, callback_success){
+    getMailInvitation: function(address, attempt){
+        return {attempt:attempt || 0, address:address, send:true};
+    },
+    saveData: function(doc, callback_success, force){
         console.info("Saving " + JSON.stringify(doc));
-        /*
-        app.db.put(doc, function callback(err, result) {
-            if (err) {
-               app.alertMessage('Failed posted a todo! ' + JSON.stringify(err), -1);
-            }else{
-               app.alertMessage('Successfully posted a todo!', 1);
-               if(callback_success){callback_success(result);}
-            }
-        });
-        app.sync();
-        */
         app.db.saveDoc(doc, {
             success: function(result) {
                 app.alertMessage('Successfully posted a todo!', 1);
@@ -381,15 +437,37 @@ var app = {
                 }
             },
             error: function(status) {
-                app.alertMessage('Failed posted a todo! ' + JSON.stringify(status), -1);
-                if(callback_success === true){
-                    delete doc._id;
-                    delete doc._rev;
-                    app.db.saveDoc(doc);
+                if((status == 409) && force){
+                    app.log('Failed to save document due to conflict. Updating and saving again');
+                    var new_doc = doc;
+                    var callback_success_fn = callback_success;
+                    app.db.openDoc(doc._id, {
+                        success:function(old_doc){
+                            new_doc._rev = old_doc._rev;
+                            app.saveData(new_doc, callback_success_fn, false);
+                        }
+                    });
+                }else{
+                    app.alertMessage('Failed posted a todo! ' + JSON.stringify(status), -1);
+                    if(force === true){
+                        delete doc._id;
+                        delete doc._rev;
+                        app.db.saveDoc(doc);
+                    }
                 }
             }
         });
 
+    },
+    nowSelectedStream: function(){
+        sessionStorage.setItem("selected_stream", $("#target").val());
+    },
+    getSelectedStream: function(){
+        var s = $("#target").val();
+        if(!s){
+            s = sessionStorage.getItem("selected_stream");
+        }
+        return s;
     },
     saveForm: function(){
         var doc = {};
@@ -400,17 +478,25 @@ var app = {
             }
         });
         doc.date = new Date().getTime();
-        doc.stream = $("#target").val(); //the stream identifier + self
-        if (doc.stream == "*"){ doc.stream = app.client_uid; }
+        doc.stream = app.getSelectedStream(); //the stream identifier + self
+        if (doc.stream == ""){ doc.stream = app.client_uid; }
         doc.owner = ""; //the stream owner (this should be a valid user id)
         doc.files = app.media_files;
-        doc["subject"] = app.client_doc.feeds[$("#target").val()].name;
+        doc["subject"] = app.client_doc.username;
+        if(app.client_doc.feeds[doc.stream]){app.client_doc.feeds[doc.stream].name;}
         doc["source"] = app.client_doc.username;
 
         app.saveData(doc, function(new_doc){
             app.log("Saved document " + JSON.stringify(doc));
+            for (var i in doc.files){
+                doc.files[i].url = doc.files[i].uri;
+            }
+            doc._id = new_doc.id;
+            app.renderListItem(doc, true);
         });
         app.clearForm();
+        //app.renderListItem({"date":new Date().getTime(), "note":"test", "files":[{"url":"http://media.agamecompany.com/childnotebook_files/1396556114546.jpeg", "type":"image/jpeg"}]}, true);
+
     },
     updateNotePreviewRecord: function(){
         var imgs = "";
@@ -463,5 +549,68 @@ function uploadMedia(document_id, media_data){
 }
 
 */
+/*
+function renderCard(item){
+    var pin_id = item._id;
+    var pictures = "";
+    if($("#"+pin_id).length){ return; }
+    if(item.destroyed) { return; }
+    for (var f in item.files){
+        if (item.files[f].type.indexOf("image") === 0){
+            pictures = pictures + '<img src="' + item.files[f].url + '"> ';
+        }else{
+            pictures = pictures + '<video src="'+item.files[f].url+'" controls width="192px"></video>';
+        }
+    }
+    if (!pictures.length){ pictures = ""; }
 
+    var pin_element = ' \
+    <!-- pin element 1 --> \
+    <div class="pin" id="'+pin_id+'"> \
+        <div class="holder"> \
+            <!-- div class="actions" pin_id="'+pin_id+'"> \
+                <a href="#" class="button">Repin</a> \
+                <a href="#" class="button">Like</a> \
+                <a href="#" class="button disabled comment_tr">Comment</a> \
+            </div --> \
+            <a class="image ajax" href="#" title="Photo number 1" pin_id="'+pin_id+'"> \
+                ' + pictures + '\
+            </a> \
+        </div> \
+        <p class="desc">' + item.subject + '<br>' + item.note + '</p> \
+        <p class="info"> \
+            ' + renderDate(new Date(item.date)) + ' <i style="float:right;">' + item.source + '</i> \
+        </p> \
+        <!-- form class="comment" method="post" action="" style="display: none"> \
+            <input type="hidden" name="id" value="'+pin_id+'" /> \
+            <textarea placeholder="Add a comment..." maxlength="1000"></textarea> \
+            <button type="button" class="button">Comment</button> \
+        </form --> \
+    </div>';
+    m.prepend(pin_element);
 
+}
+
+function renderBoard(doc){
+    for (var i in doc.rows){
+        renderCard(doc.rows[i].value);
+    }
+    m.masonry('reload');
+    //enableComments();
+}
+function renderDate(d){
+    return d.getFullYear() + "." + getDoubleDigits(d.getMonth()) + "." + getDoubleDigits(d.getDate()) + " " + getDoubleDigits(d.getHours()) + ":" + getDoubleDigits(d.getMinutes());
+}
+function getDoubleDigits(f){
+    var s = f+"";
+    if (s.length == 1){return "0"+s;}
+    return s;
+}
+
+window.m = $('.main_container').masonry({
+        // options
+        itemSelector : '.pin',
+        isAnimated: true,
+        isFitWidth: true
+    });
+*/
