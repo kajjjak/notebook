@@ -100,15 +100,15 @@ function displayCard(self){
     }
     var heading = "";
     //heading = heading + "<p class='view_card_info_subject'>"+item.subject+"</p>";
-    heading = heading + "<input id='view_card_info_note' type='text' value='"+item.note+"' />";
     heading = heading + "<p class='view_card_info_source'>"+item.source+"</p>";
     heading = heading + "<p class='view_card_info_date'>"+renderDate(new Date(item.date))+"</p>";
+    heading = heading + "<center><br><br><input id='view_card_info_note' type='text' value='"+item.note+"' /><br><br>";
     $("#view_card_title").html(item.note || item.subject || "Card");
     var menu = "";
-    menu = menu + "<button id='delete_"+item._id+"' onclick='deleteCard(this)'>delete</button>";
-    menu = menu + "<button id='update_"+item._id+"' onclick='updateCard(this)'>update</button>";
-    $("#view_card_content").html(heading + pictures + menu);
-    setTimeout(function(){location.href="#view_card";}, 100);
+    menu = menu + "<button id='update_"+item._id+"' onclick='updateCard(this)'>update</button><br><br>";
+    menu = menu + "<button id='delete_"+item._id+"' onclick='deleteCard(this)'>delete</button><br><br>";
+    $("#view_card_content").html(heading + pictures +"<br><br>"+ menu+"</center>");
+    setTimeout(function(){location.href="#card";}, 100);
 }
 
 function renderCard(item){
@@ -149,7 +149,7 @@ function renderCard(item){
 }
 function getGUIBoardMenuItemStyle(b){
     var menu_style = "menu_board_item_visible";
-    if(b){
+    if(!b){
         menu_style = "menu_board_item_hidden";
     }
     return menu_style;
@@ -181,4 +181,5 @@ $(document).ready(function(){
     });
 
     updateBoardsMenu();
+
 });

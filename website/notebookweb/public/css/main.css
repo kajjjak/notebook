@@ -367,17 +367,17 @@ a {
 }
 
 .view_card_info_subject {
-
+    float:right;
 }
-.view_card_info_note {
-
+#view_card_info_note {
+    width:100%;
 }
 .view_card_info_source {
-
+    float:right;
 }
 
 .view_card_info_date {
-
+    float:left;
 }
 
 .menu_board_item_visible {

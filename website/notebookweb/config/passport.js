@@ -48,6 +48,21 @@ function getUserByName(username, callback_result){
     });
 }
 
+function setDocument(id, obj, success, failure){
+    var db = nano.db.use('childnotebook');
+    db.get(id, function(err, doc){
+        if(err){failure(err);
+        }else{
+            for (var key in obj) { doc[key] = obj[key]; }
+            db.insert(doc, id, function(err, changed_doc){
+                if(err){failure(err);}
+                else{success(changed_doc);}
+            });
+        }
+        
+    }); 
+}
+
 module.exports = function(passport) {
 
     // =========================================================================

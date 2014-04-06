@@ -1,3 +1,5 @@
+var nano = require('nano')('http://54.249.245.7/');
+
 module.exports = function(){
   var express = require('express');
   var app = express();
@@ -35,7 +37,6 @@ module.exports = function(){
 }();
 
 function setDocument(id, obj, success, failure){
-	var nano = require('nano')('http://54.249.245.7/');
 	var db = nano.db.use('childnotebook');
     db.get(id, function(err, doc){
         if(err){failure(err);
