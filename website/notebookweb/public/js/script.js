@@ -1,7 +1,7 @@
 /*
  */
 
-var server_url = "http://54.249.245.7/childnotebook";
+var server_url = "http://54.249.245.7/notebook";
 var cards = {};
 
 function enableComments(){
@@ -161,6 +161,7 @@ function updateBoardsMenu(){
     $("#board_menu").html("");    
     $.getJSON(url, function(item){
         var menu = "";
+        item.feeds[user_id] = {name: "General"};
         for (var i in item.feeds){
             var feed = item.feeds[i];
             displayBoard(i, hide_boards[i]);

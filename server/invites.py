@@ -1,4 +1,4 @@
-url_links = "http://54.249.245.7/childnotebook/_design/list/_view/invite";
+url_links = "http://54.249.245.7/notebook/_design/list/_view/invite";
 import urllib
 import json
 from mailgun import * #sudo pip install mailgun; sudo pip install simplejson

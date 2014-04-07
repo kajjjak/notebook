@@ -218,7 +218,8 @@
           <input class="stream_field" type="text" name="note" id="note" value="" placeholder="Optional notes"/>
       </fieldset>              
         <a href="#" data-role="button" data-icon="check" data-theme="b" onclick="app.saveForm();" data-iconpos="right">Save</a>
-        <a class="button_mainlist" onclick="app.clearForm();" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Cancel</a>
+        <!-- a class="button_mainlist" onclick="app.clearForm();" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Cancel</a 
+        -->
         <div id="note_record"></div>
         <div id="log"></div>
       </div>
@@ -229,9 +230,9 @@
   <div data-role="page" id="login">
     <div data-role="content"> 
       <h3 style="text-align:center;">Login</h3>
-      <label for="username">Username:</label>
-      <input class="authentication" type="text" id="authentication_username" value="">
-      <label for="password">Password:</label>
+      <label for="authentication_username">Username:</label>
+      <input class="authentication" type="email" id="authentication_username" value="">
+      <label for="authentication_password">Password:</label>
       <input class="authentication" type="password" id="authentication_password" value="">            
       <a id="authentication_login" data-role="button" data-icon="back" data-theme="b" data-iconpos="right">Login</a>
       <br>
@@ -242,11 +243,9 @@
   <div data-role="page" id="register">
     <div data-role="content"> 
       <h3 style="text-align:center;">Register</h3>
-      Authentication not found. Please register by entering your email address (for recovery purposes) and password.
-      If you already have registered please try to login again.
-      <label for="email">Email:</label>
-      <input class="authentication" type="email" id="authentication_email" value="">      
-      <label for="password">Password (again):</label>
+      If you already have registered please try to login again.<br>
+      Register by reentering the password.
+      <label for="authentication_password_again">Password (again):</label>
       <input class="authentication" type="password" id="authentication_password_again" value="">            
       <a id="authentication_register" data-role="button" data-icon="user" data-theme="b" data-iconpos="right">Register</a>
       <a class="#login" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Login</a>

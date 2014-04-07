@@ -1,6 +1,6 @@
 /*
  
- http://54.249.245.7/_utils/database.html?childnotebook
+ http://54.249.245.7/_utils/database.html?notebook
  http://documentation.mailgun.com/
  http://docs.phonegap.com/en/1.3.0/phonegap_file_file.md.html#FileReader
  http://mobile.tutsplus.com/tutorials/phonegap/phonegap-from-scratch-camera-exporting/
@@ -32,7 +32,7 @@ var app = {
     // Application Constructor
     client_lst: {},
     media_files: [],
-    server_url: "http://54.249.245.7/childnotebook",
+    server_url: "http://54.249.245.7/notebook",
     initialize: function() {
         $.couch.urlPrefix = "http://54.249.245.7/";
         app.client_doc_default = {feeds:{}, image_width: 128};
@@ -66,16 +66,39 @@ var app = {
     },
     registerButtons: function(){
         $("#authentication_login").click(function(){
-            app.client_doc.username = $("#authentication_username").val();
-            app.client_doc.email = app.getMailInvitation($("#authentication_email").val());
+            var username = $("#authentication_username").val();
+            var password = $("#authentication_password").val();
+            app.client_doc.email = app.getMailInvitation(username);
             if (!app.hasValidLoginAuthentication()){
                 app.alertMessage("User name and password required");
             }else{
-                app.client_uid = app.client_doc.hash = CryptoJS.MD5(app.client_doc.username + "-" + $("#authentication_password").val()) + "";
-                $.mobile.changePage("#main");
-                app.fetchConfig(null, function(){
-                    $.mobile.changePage("#register");
-                }); //should exist                
+                var username_hashed  = CryptoJS.MD5(username) + "";
+                var password_hashed  = CryptoJS.MD5(password) + "";
+                app.db.openDoc(username_hashed, {
+                    success: function(doc){
+                        app.client_doc = doc;
+                        if(doc.auth){
+                            if(doc.auth.local){
+                                if(password_hashed == doc.auth.local.password){
+                                    app.loadStreams(doc);
+                                    app.client_uid = app.client_doc.hash = username_hashed;
+                                    if(!app.client_doc.username){
+                                        app.client_doc.username = doc.auth.local.username;
+                                    }
+                                    $.mobile.changePage("#main");
+                                    return;
+                                }
+                            }
+                        }
+                        app.alertMessage("Password was incorrect.");
+                        $("#authentication_password").val("");
+                    },
+                    error: function(){
+                        app.loadStreams(app.client_doc);
+                        if(callback_failure){callback_failure();}
+                    }
+                });
+                app.client_uid = null;
             }
         });
         $("#authentication_register_form").click(function(){
@@ -86,11 +109,22 @@ var app = {
         });        
         $("#authentication_register").click(function(){
             if($("#authentication_password").val() == $("#authentication_password_again").val()){
-                console.info("Sending email to " + $("#authentication_email").val());
-                app.client_doc.username = $("#authentication_username").val();
-                app.client_doc.email = app.getMailInvitation($("#authentication_email").val());
-                app.client_uid = app.client_doc.hash = CryptoJS.MD5(app.client_doc.username + "-" + $("#authentication_password").val()) + "";
-                app.saveClientInfo();
+                var username = $("#authentication_username").val();
+                var password = $("#authentication_password").val();                
+                var username_hashed  = CryptoJS.MD5(username) + "";
+                var password_hashed  = CryptoJS.MD5(password) + "";                
+                console.info("Sending email to " + username);
+                app.client_doc.username = username;
+                app.client_uid = username_hashed;
+                if (!app.client_doc.auth){ app.client_doc.auth = {}; }
+                if (!app.client_doc.auth.local){ app.client_doc.auth.local = {}; }
+                app.client_doc.auth.local.id = username;
+                app.client_doc.auth.local.username = username;
+                app.client_doc.auth.local.password = password_hashed;
+                app.client_doc.feeds = {};
+                app.client_doc._id = app.client_uid;
+                app.buildList();
+                app.showStreamFeeds(true);
                 $.mobile.changePage("#record");
             }
         });
@@ -242,7 +276,7 @@ var app = {
     },
     renderListItem: function(item, refresh){
         /*
-            app.renderListItem({"date":new Date().getTime(), "note":"test", "files":[{"url":"http://media.agamecompany.com/childnotebook_files/1396556114546.jpeg", "type":"image/jpeg"}]});
+            app.renderListItem({"date":new Date().getTime(), "note":"test", "files":[{"url":"http://media.agamecompany.com/notebook_files/1396556114546.jpeg", "type":"image/jpeg"}]});
         */
         time = app.renderDate(new Date(item.date));
         images = app.renderMedia(item, 'height="80px"', '', true);
@@ -273,8 +307,8 @@ var app = {
         return s;
     },
     loadDatabase: function(){
-        //app.db = new PouchDB('childnotebook');
-        app.db = $.couch.db("childnotebook");
+        //app.db = new PouchDB('notebook');
+        app.db = $.couch.db("notebook");
     },
     syncTimer: function(){
         var online = true;
@@ -372,7 +406,11 @@ var app = {
         }else{
             $(".stream_feed_info#name").val(feed_info.name);
             if(feed_info.email){
-                $(".stream_feed_info#email").val(feed_info.email.address);
+                var eml = "";
+                for (var ei in feed_info.email){
+                    eml = eml + feed_info.email[ei].address + ";";
+                }
+                $(".stream_feed_info#email").val(eml);
             }else{
                 $(".stream_feed_info#email").val("");
             }
@@ -401,10 +439,13 @@ var app = {
                 if (attr == "email"){
                     var emails = $(this).val().split(";");
                     app.client_doc.feeds[app.selected_feed][attr] = [];
+                    var emails_invites = [];
                     for (var i in emails){
-                        emails.push(app.getMailInvitation(emails[i]));
+                        emails_invites.push(app.getMailInvitation(emails[i]));
                     }
-                    app.client_doc.feeds[app.selected_feed][attr] = emails;
+                    app.client_doc.feeds[app.selected_feed][attr] = emails_invites;
+                }else{
+                    app.client_doc.feeds[app.selected_feed][attr] = $(this).val();
                 }
             }
         });
@@ -479,11 +520,11 @@ var app = {
         });
         doc.date = new Date().getTime();
         doc.stream = app.getSelectedStream(); //the stream identifier + self
-        if (doc.stream == ""){ doc.stream = app.client_uid; }
+        if (!doc.stream){ doc.stream = app.client_uid; }
         doc.owner = ""; //the stream owner (this should be a valid user id)
         doc.files = app.media_files;
         doc["subject"] = app.client_doc.username;
-        if(app.client_doc.feeds[doc.stream]){app.client_doc.feeds[doc.stream].name;}
+        if(app.client_doc.feeds[doc.stream]){doc["subject"] = app.client_doc.feeds[doc.stream].name;}
         doc["source"] = app.client_doc.username;
 
         app.saveData(doc, function(new_doc){
@@ -495,7 +536,7 @@ var app = {
             app.renderListItem(doc, true);
         });
         app.clearForm();
-        //app.renderListItem({"date":new Date().getTime(), "note":"test", "files":[{"url":"http://media.agamecompany.com/childnotebook_files/1396556114546.jpeg", "type":"image/jpeg"}]}, true);
+        //app.renderListItem({"date":new Date().getTime(), "note":"test", "files":[{"url":"http://media.agamecompany.com/notebook_files/1396556114546.jpeg", "type":"image/jpeg"}]}, true);
 
     },
     updateNotePreviewRecord: function(){

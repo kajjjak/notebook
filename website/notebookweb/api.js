@@ -5,7 +5,7 @@ module.exports = function(){
   var app = express();
 
   app.get('/board/:id', function(req, res){
-    var db = nano.db.use('childnotebook');
+    var db = nano.db.use('notebook');
     db.get(req.params.id, function(err, doc){
     	var response = "null";
         if(err){
@@ -37,7 +37,7 @@ module.exports = function(){
 }();
 
 function setDocument(id, obj, success, failure){
-	var db = nano.db.use('childnotebook');
+	var db = nano.db.use('notebook');
     db.get(id, function(err, doc){
         if(err){failure(err);
         }else{

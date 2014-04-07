@@ -1,4 +1,4 @@
-url_links = "http://54.249.245.7/childnotebook/_design/media/_view/quicktime";
+url_links = "http://54.249.245.7/notebook/_design/media/_view/quicktime";
 import urllib
 import json
 import qtrotate

@@ -15,7 +15,7 @@ var User       = require('../app/models/user');
 var configAuth = require('./auth'); // use this one for testing
 
 function getUser(email, password, callback_result){
-    var db = nano.db.use('childnotebook');
+    var db = nano.db.use('notebook');
     var doc_id = crypto.createHash('md5').update(email+"-"+password).digest('hex');
     console.log("fetching document id " + doc_id);
 
@@ -31,8 +31,26 @@ function getUser(email, password, callback_result){
     });
 }
 
-function getUserByName(username, callback_result){
-    var url = "http://54.249.245.7/childnotebook/_design/list/_view/usernames?key=%22"+username+"%22";
+function addUser (doc_id, doc, done){
+    var db = nano.db.use('notebook');
+    console.log("creating document id " + doc_id);
+    doc.hash = doc_id;
+    doc.feeds = {};
+    doc.image_width = null;
+    db.insert(doc, doc_id, function(err, body){
+        if(err){
+            console.info(JSON.stringify(err));
+            //return done(err);
+            throw err;
+            
+        }else{
+            return done(null, doc);
+        }
+    });    
+}
+
+function getUserById(username, callback_result){
+    var url = "http://54.249.245.7/notebook/_design/list/_view/userid?key=%22"+username+"%22";
     http.get(url, function(res) {
         var _callback_result = callback_result;
         var body = '';
@@ -49,7 +67,7 @@ function getUserByName(username, callback_result){
 }
 
 function setDocument(id, obj, success, failure){
-    var db = nano.db.use('childnotebook');
+    var db = nano.db.use('notebook');
     db.get(id, function(err, doc){
         if(err){failure(err);
         }else{
@@ -87,7 +105,7 @@ module.exports = function(passport) {
         //console.log("-----<<<<-----" + JSON.stringify(doc));
         return done(null, doc);
         /*
-        var db = nano.db.use('childnotebook');
+        var db = nano.db.use('notebook');
         db.get(doc._id, {
             success:function(body){
                 return done(null, body);
@@ -109,10 +127,14 @@ module.exports = function(passport) {
     },
     function(req, email, password, done){
         // asynchronous
-        process.nextTick(function() {
-            getUser(email, password, function(user){
-                if(user){
-                    return done(null, user); //, req.flash('loginMessage', 'Ok'));
+        process.nextTick(function(){
+            getUserById(email, function(rows){
+                if(rows.length){
+                    user = rows[0].value;
+                    if(user.auth.local.password == crypto.createHash('md5').update(password).digest('hex')){
+                        return done(null, user); //, req.flash('loginMessage', 'Ok'));
+                    }
+                    return done(null, false, req.flash('loginMessage', 'Wrong password.'));
                 }else{
                     return done(null, false, req.flash('loginMessage', 'No user found.'));
                 }
@@ -137,32 +159,21 @@ module.exports = function(passport) {
             // check if the user is already logged ina
             if (!req.user) {
                 // check to see if theres already a user with that email
-                getUserByName(email, function(users){
+                getUserById(email, function(users){
                     if(users.length){
                         return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
                     }else{
                         //create the new user
-                        var db = nano.db.use('childnotebook');
-                        var doc_id = crypto.createHash('md5').update(email+"-"+password).digest('hex');
-                        var doc = {
-                            feeds:[],
-                            username:email,
-                            email:email,
-                            hash:doc_id,
-                            image_width: null
-                        };
-                        console.log("creating document id " + doc_id);
-                        db.insert(doc, doc_id, function(err, body){
-                            if(err){
-                                console.info(JSON.stringify(err));
-                                //return done(err);
-                                throw err;
-                                
-                            }else{
-                                return done(null, doc);
+                        var doc_id = crypto.createHash('md5').update(email).digest('hex');
+                        addUser(doc_id, {
+                            auth:{
+                                local: {
+                                    id: email,
+                                    username: email,
+                                    password: crypto.createHash('md5').update(password).digest('hex')
+                                }
                             }
-                        });
-
+                        }, done);
                     }
                 });
 
@@ -227,7 +238,7 @@ module.exports = function(passport) {
 
             // check if the user is already logged in
             if (!req.user) {
-
+                /*
                 User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
                     if (err)
                         return done(err);
@@ -264,6 +275,7 @@ module.exports = function(passport) {
                         });
                     }
                 });
+                */
 
             } else {
                 // user already exists and is logged in, we have to link accounts
