@@ -63,7 +63,24 @@
                 <a class="close" href="#close">x</a>
                 <h2 id="view_card_title"></h2>
             </div>
+            
             <div id="view_card_content" class="card"></div>
+
+            <!--- facebook info begins -->
+			<% if (user.facebook) { %>
+				<p>
+					<strong>id</strong>: <%= user.facebook.id %><br>
+					<strong>token</strong>: <%= user.facebook.token %><br>
+					<strong>email</strong>: <%= user.facebook.email %><br>
+					<strong>name</strong>: <%= user.facebook.name %><br>
+				</p>
+
+				<a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
+			<% } else { %>
+				<a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
+			<% } %>
+            <!--- facebook info ends -->
+
         </div>
 
 
