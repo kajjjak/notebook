@@ -238,6 +238,27 @@ module.exports = function(passport) {
 
             // check if the user is already logged in
             if (!req.user) {
+                getUserById(profile.id, function(users){
+                    var user = {};
+                    if(users.length){
+                        user = rows[0].value;
+                        if(!user.auth){ user.auth = {}; }
+                        if(!user.auth.facebook){ user.auth.facebook = {}; }
+                        if(user.auth.facebook.token){
+                            console.log("found facebook user");
+                            return done(null, user); 
+                        }
+                    }
+                    console.log("creating facebook user" + JSON.stringify(profile));
+                    if(!user.auth){ user.auth = {}; }
+                    if(!user.auth.facebook){ user.auth.facebook = {}; }                    
+                    user.auth.facebook.id = profile.id;
+                    user.auth.facebook.token = token;
+                    user.auth.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
+                    user.auth.facebook.email = profile.emails[0].value;
+                    addUser(user._id, user, done);                            
+                });
+
                 /*
                 User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
                     if (err)
