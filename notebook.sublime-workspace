@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"pr",
+				"profile"
+			],
+			[
+				"clin",
+				"client_uid"
+			],
+			[
+				"hash",
+				"password_hashed"
+			],
+			[
+				"username",
+				"username_hashed"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"hide",
+				"hide_boards"
+			],
+			[
+				"hi",
+				"hide_boards"
+			],
+			[
+				"dis",
+				"displayBoard"
+			],
+			[
+				"board",
+				"board_menu_style"
+			],
+			[
+				"rend",
+				"renderMedia"
+			],
+			[
 				"rot",
 				"rotate_index"
 			],
@@ -388,10 +428,6 @@
 				"error_message"
 			],
 			[
-				"hi",
-				"hidden"
-			],
-			[
 				"prev",
 				"preview_file_name"
 			],
@@ -478,76 +514,48 @@
 			[
 				"getFile",
 				"getFileByName"
-			],
-			[
-				"setP",
-				"setPreviewHTML"
-			],
-			[
-				"window",
-				"workspace_layout_windows"
-			],
-			[
-				"lay",
-				"layout_options"
-			],
-			[
-				"brea",
-				"breakpoint_rows"
-			],
-			[
-				"comp",
-				"compiledHTML"
-			],
-			[
-				"j",
-				"getJson"
-			],
-			[
-				"populate",
-				"populateDialogWorkspaceProType"
-			],
-			[
-				"evalu",
-				"evaluated"
-			],
-			[
-				"PAYMENT_VALITATION_STATE_",
-				"PAYMENT_VALITATION_STATE_SYSTEMUPDATE_FAILED_ACCOUNT"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "notebook/www/css/index.css",
+			"file": "notebook/www/js/index.js",
 			"settings":
 			{
-				"buffer_size": 3720,
+				"buffer_size": 25400,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "website/notebookweb/public/css/main.css",
+			"file": "website/notebookweb/public/js/script.js",
 			"settings":
 			{
-				"buffer_size": 8329,
+				"buffer_size": 6290,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "notebook/www/index.html",
+			"file": "website/notebookweb/config/passport.js",
 			"settings":
 			{
-				"buffer_size": 13868,
+				"buffer_size": 18337,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "website/notebookweb/public/photos/quicktimeupl.py",
+			"file": "website/notebookweb/server.js",
 			"settings":
 			{
-				"buffer_size": 564,
+				"buffer_size": 1664,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "website/notebookweb/views/profile.ejs",
+			"settings":
+			{
+				"buffer_size": 6341,
 				"line_ending": "Unix"
 			}
 		}
@@ -584,19 +592,44 @@
 	},
 	"file_history":
 	[
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/www/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/config/passport.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/server.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/js/script.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/api.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/server/quicktimeupl.py",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/server/quicktimefix.py",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/platforms/ios/build/emulator/NoteBook.app/www/js/index.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/platforms/ios/www/js/media_uploader.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/server/cleanup.py",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/platforms/ios/www/js/index.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/www/js/media_uploader.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/server/invites.py",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/views/profile.ejs",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/css/main.css",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/www/js/index.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/app/routes.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/routes/api.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/index_old.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/views/index.ejs",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/views/signup.ejs",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/views/login.ejs",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/config/auth.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/index.html",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/package.json",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/runserverweb.sh",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/app.js",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/photos/mailgun/__init__.py",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/photos/invites.py",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/www/css/index.css",
+		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/photos/quicktimeupl.py",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/photos/upload2.py",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/photos/quicktimefix.py",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/photos/qtrotate.py",
-		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/www/js/index.js",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/photos/upload.py",
-		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/index.html",
-		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/www/js/media_uploader.js",
-		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/public/js/script.js",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notused/childnotebook.notused/childnotebook copy/www/config.xml",
-		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/www/index.html",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/notebook/config.xml",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/README.md",
-		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/notebook/website/notebookweb/app.js",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/www/js/index.js",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/www/index.html",
 		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/notebook/web/index.html",
@@ -686,32 +719,7 @@
 		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/clientstore.js",
 		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/files.js",
 		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates/login.html",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/codewip.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/workspace.sublime-workspace",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/utils.js",
-		"/Users/kjartanjonsson/Documents/Workspace/ChildNoteBook/childnotebook/www/index.html",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/css/layout-default.css",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates/plugin.html",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/prettyPrint/1.03.0/prettyprint.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/requests/utils.py",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/node/util.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/json.human.js/json.human.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/promotion/models.py",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/simplr/admin.py",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/editor/models.py",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/developer/models.py",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/offline/0.4.7/offline.min.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/css/offline_theme.css",
-		"/Users/kjartanjonsson/Dropbox/mystackedit/file.md",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/tree.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/offline/0.4.7/offline.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/dev/plugins/Plugin Javascript/readme.md",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/vendor/dropbox/dropbox.min.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_javascript.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_coffee.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/repository_storage.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/deployment_couchdb.js",
-		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/modules/compiler_markdown.js"
+		"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/codewip.js"
 	],
 	"find":
 	{
@@ -719,9 +727,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"",
 			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/,/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates",
 			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/,/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates,/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr",
 			"/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/static/scripts/,/Users/kjartanjonsson/Documents/Workspace/simplrweb 0.x/simplr/templates",
@@ -755,6 +764,87 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"child",
+			"showStreamFeeds",
+			"buildList",
+			"saveData",
+			"= doc",
+			"source",
+			"feeds",
+			"pp.client_doc.feeds[app.selected_feed][attr] =",
+			"displayBoard",
+			"getSelectedStream",
+			"stream",
+			"fetchConfig",
+			"authentication_login",
+			"authentication_register_form",
+			"fetchConfig",
+			"app.client_doc.username",
+			"fetchConfig",
+			"getUserById",
+			"childnotebook",
+			"getUserById",
+			"user.lengt",
+			"addUser",
+			"getUserByName",
+			"getUserBySocialAuth",
+			"displayCard",
+			"card",
+			"view",
+			"#view",
+			"getGUIBoardMenuItemStyle",
+			"'reload",
+			"displayBoard",
+			"remove",
+			"delete",
+			"body",
+			"getGUIBoardMenuIcon",
+			"displayBoard",
+			"hide_boards",
+			"displayBoard",
+			"hide_boards",
+			"displayBoard",
+			"view_card_content",
+			"renderCard",
+			"popup",
+			"\"#x",
+			"\"#X",
+			"add_form",
+			"getUserByName",
+			"user",
+			"send_text",
+			"MailgunMessage",
+			".email",
+			"getMailInvitation",
+			"email",
+			"cache",
+			"saveData",
+			"saveClientInfo",
+			"saveStreams",
+			"saveConfigCache",
+			"fetchConfig",
+			".client_uid",
+			"logi",
+			"log",
+			"button_saveitem",
+			"saveItem",
+			"remove",
+			"delete",
+			" = 'An error occurred while capturing picture: ' + error.code",
+			"buildList",
+			"loadList",
+			"showList",
+			"showStreamFeeds",
+			"saveItem",
+			"removeitem",
+			"renderListItem",
+			"loadStreams",
+			"showStreamFeeds",
+			"renderList",
+			"loadListCache",
+			"renderList",
+			"login_pop",
+			"rotate_90",
 			"fix",
 			"refresh",
 			"make_upload_file",
@@ -801,88 +891,7 @@
 			"\"-\"",
 			"client_uid",
 			"_uid",
-			"Cr",
-			"Cry",
-			"add Child",
-			"db.",
-			"saveData",
-			"icture",
-			"amera",
-			"displayCacheList",
-			"buildList",
-			"buildList\nbuildList\nbuildList",
-			"buildList\nbuildList",
-			"getItem",
-			"client_lst",
-			"fetchList",
-			"stream_key",
-			"fetchStreams",
-			"loadConfig",
-			"saveStreams",
-			"loadStreams",
-			"fetchStreams",
-			"\"setup\"",
-			"http",
-			"app.server_u",
-			"captureUploadPicture",
-			"navigator",
-			"captureUploadPicture",
-			"localStorage",
-			"stream_field",
-			"new Date",
-			"client_uid",
-			"localStore",
-			"lang",
-			"button_mainlist",
-			"\"181-110\"",
-			"addItemRecord",
-			"debit",
-			"setWatchPlayerPosition",
-			"watchPos",
-			"setWatchPlayer",
-			"setWatchPlayerPosition",
-			"logMessage",
-			"console.log",
-			"show",
-			"prepData",
-			"withinRange",
-			"force",
-			"locatePlayer",
-			"panTo",
-			"setWatchPlayerPosition",
-			"  if((map.panTo) && (window.player)){map.panTo(window.player.getPosition());}\n",
-			"panTo",
-			"watch",
-			"setWatchPlayerPosition",
-			"setWatchPlayer",
-			"locate",
-			"Success",
-			"window.device",
-			"setUserLocationSuccess",
-			"onDeviceReady",
-			"showMap",
-			"loadControls",
-			"window.dev",
-			"5.7",
-			"device",
-			"onOnline",
-			"online",
-			"onOffline",
-			"showMap",
-			"active",
-			"locatePlayer",
-			"onDeviceFocus",
-			"setViewPortChanged",
-			"replace",
-			"oute_path = route_path.repla",
-			".png",
-			"css",
-			"css/",
-			"location_error",
-			"watch",
-			"setWatchPlayerPosition",
-			"locatePlayer",
-			"showPath"
+			"Cr"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -890,6 +899,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"notebook",
+			"doc",
 			"86ce76b41f6681dff335841d2100d7efsssssss",
 			"fetchConfig",
 			"saveConfig",
@@ -1015,9 +1026,7 @@
 			"-1x",
 			"this.___local_storage_db",
 			"\",",
-			"\"",
-			"",
-			")"
+			"\""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1033,18 +1042,18 @@
 			[
 				{
 					"buffer": 0,
-					"file": "notebook/www/css/index.css",
+					"file": "notebook/www/js/index.js",
 					"settings":
 					{
-						"buffer_size": 3720,
+						"buffer_size": 25400,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3719,
-								3719
+								18011,
+								18011
 							]
 						],
 						"settings":
@@ -1138,30 +1147,30 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6066.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "website/notebookweb/public/css/main.css",
+					"file": "website/notebookweb/public/js/script.js",
 					"settings":
 					{
-						"buffer_size": 8329,
+						"buffer_size": 6290,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8329,
-								8329
+								757,
+								759
 							]
 						],
 						"settings":
@@ -1255,30 +1264,30 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4205.0,
+						"translation.y": 32.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "notebook/www/index.html",
+					"file": "website/notebookweb/config/passport.js",
 					"settings":
 					{
-						"buffer_size": 13868,
+						"buffer_size": 18337,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13494,
-								13494
+								73,
+								73
 							]
 						],
 						"settings":
@@ -1372,30 +1381,30 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3544.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "website/notebookweb/public/photos/quicktimeupl.py",
+					"file": "website/notebookweb/server.js",
 					"settings":
 					{
-						"buffer_size": 564,
+						"buffer_size": 1664,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								285,
-								285
+								1214,
+								1214
 							]
 						],
 						"settings":
@@ -1489,10 +1498,126 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "website/notebookweb/views/profile.ejs",
+					"settings":
+					{
+						"buffer_size": 6341,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2768,
+								2768
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 535.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1549,6 +1674,26 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"pass",
+				"website/notebookweb/config/passport.js"
+			],
+			[
+				"server",
+				"website/notebookweb/server.js"
+			],
+			[
+				"passp",
+				"website/notebookweb/config/passport.js"
+			],
+			[
+				"mailgun",
+				"website/notebookweb/public/photos/mailgun/__init__.py"
+			],
+			[
+				"invit",
+				"website/notebookweb/public/photos/invites.py"
+			],
 			[
 				"quick",
 				"website/notebookweb/public/photos/quicktimeupl.py"

@@ -12,6 +12,7 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.masonry.min.js"></script>
         <script src="js/script.js"></script>
+        <script src="/js/invite.js" type="text/javascript"></script>
     </head>
     <body>
         <!-- header panel -->
@@ -37,8 +38,8 @@
                     <a href="#">Profile<span></span></a>
                     <ul>
                         <li><a href="#">Invite Friends</a></li>
-                        <!-- li class="div"><a href="#">Settings</a></li -->
-                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="#streams" onclick="updateStreamList()">Settings</a></li>
+                        <li class="div"><a href="/logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -66,23 +67,19 @@
             
             <div id="view_card_content" class="card"></div>
 
-            <!--- facebook info begins -->
-			<% if (user.facebook) { %>
-				<p>
-					<strong>id</strong>: <%= user.facebook.id %><br>
-					<strong>token</strong>: <%= user.facebook.token %><br>
-					<strong>email</strong>: <%= user.facebook.email %><br>
-					<strong>name</strong>: <%= user.facebook.name %><br>
-				</p>
-
-				<a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
-			<% } else { %>
-				<a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
-			<% } %>
-            <!--- facebook info ends -->
-
         </div>
 
+
+        <a href="#x" class="overlay" id="streams"></a>
+        <div class="popup">
+            <div class="header">
+                <a class="close" href="#close">x</a>
+                <h2>Streams</h2>
+            </div>
+            
+            <ul id="board_list"></ul>
+
+        </div>
 
         <!-- main container -->
         <div class="main_container"></div>

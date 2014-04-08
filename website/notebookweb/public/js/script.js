@@ -89,7 +89,6 @@ function updateCard(self){
         m.masonry('reload');
         location.href="#close";
     });
-
 }
 
 function displayCard(self){
@@ -154,21 +153,79 @@ function getGUIBoardMenuItemStyle(b){
     }
     return menu_style;
 }
+
+function getUserId(){
+    return $("#user_id").val() || "e50d0be05bf25a909ef1d96a0f62800d"; //FIXME
+}
+
 function updateBoardsMenu(){
-    var user_id = $("#user_id").val() || "e50d0be05bf25a909ef1d96a0f62800d"; //FIXME
+    var user_id = getUserId();
     var url = server_url + "/"+user_id;
     window.hide_boards = JSON.parse(localStorage.getItem("hide_boards") || "{}");
-    $("#board_menu").html("");    
+    $("#board_menu").html("");
     $.getJSON(url, function(item){
         var menu = "";
+        var list = "";
+        $.extend(item.feeds, item.eats);
         item.feeds[user_id] = {name: "General"};
         for (var i in item.feeds){
             var feed = item.feeds[i];
+            if (feed.accept == -1){ continue; }
             displayBoard(i, hide_boards[i]);
             menu = menu + '<li><a id="'+i+'" href="#" onclick="displayBoard(this.id)" class="'+getGUIBoardMenuItemStyle(hide_boards[i])+'">' + feed.name + '</a></li>';
         }
         $("#board_menu").append(menu);
     });
+}
+
+function renderStreamDialogMissing(doc){
+    var stream_id = doc.rows[0].key;
+    var stream_name = doc.rows[0].value.subject;
+    var stream_source = doc.rows[0].value.source;
+    var link_subscribe = "<a href='#' stream_id='"+stream_id+"' stream_name='"+stream_name+"' onclick='subscribeStream(this, true)'>+</a> ";
+    var link_unsubscribe = "<a href='#' stream_id='"+stream_id+"' stream_name='"+stream_name+"' onclick='subscribeStream(this, false)'>x</a>";
+    $("#stream_"+stream_id).html(stream_name + " " + stream_source + " " + link_subscribe  + " " + link_unsubscribe);
+}
+
+function subscribeStream(self, enable){
+    var stream_name = $(self).attr("stream_name");
+    var stream_id = $(self).attr("stream_id");
+    if(!enable) {stream_name = null;}
+    acceptInvites(getUserId(), stream_id, stream_name, function(){
+        //alert("Subscribing to" + stream_id);
+        updateBoardsMenu();
+        displayBoard(stream_id, !enable);
+    });
+}
+
+function updateStreamList(){
+    //location.href = "#streams";
+    var stream_content = "";
+    var stream_url = "http://54.249.245.7/notebook/_design/list/_view/stream?key=%22#%22";
+    var user_id = getUserId();
+    var url = server_url + "/"+user_id;
+    $("#board_list").html("");
+    $.getJSON(url, function(item){
+        var menu = "";
+        var list = "";
+        $.extend(item.feeds, item.eats);
+        item.feeds[user_id] = {name: "General"};
+        for (var i in item.feeds){
+            var feed = item.feeds[i];
+            if (feed.name == "undefined" || feed.name == undefined || feed.name == null || feed.name == "null"){
+                ///NEW FEEDS THAT THE USER CAN SUBSCRIBE TO
+                $.getJSON(stream_url.replace("#", i), renderStreamDialogMissing);
+                feed.name = "loading ...";
+            }
+            var link_unsubscribe = "";
+            if (feed.accept){ //this is an external feed lets give the user option to unsbscribe
+                link_unsubscribe = "<a href='#' stream_id='"+i+"' stream_name='"+feed.name+"' onclick='subscribeStream(this, false)'>x</a>";
+            }
+            menu = menu + '<li id="stream_'+i+'">' + feed.name + ' ' + link_unsubscribe + '</li>';
+        }
+        $("#board_list").append(menu);
+    });
+
 }
 
 $(document).ready(function(){

@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
 <head>
-	<title>Node Authentication</title>
+	<title>Authentication</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<script src="/js/invite.js" type="text/javascript"></script>
 	<style>
 		body 		{ padding-top:80px; }
 	</style>
@@ -39,14 +40,5 @@
 
 </div>
 </div>
-	<script>
-		function getURLParameter(name) {
-		  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
-		}
-		var invite = getURLParameter("invite");
-		if (invite){
-			sessionStorage.setItem("invite", invite);
-		}
-	</script>
 </body>
 </html>

@@ -1,3 +1,3 @@
-{"total_rows":0,"offset":0,"rows":[
-
+{"total_rows":1,"offset":0,"rows":[
+{"id":"86ce76b41f6681dff335841d21023884","key":1396949034100,"value":{"_id":"86ce76b41f6681dff335841d21023884","_rev":"2-fe0a1b1e728787e080394bfaebcefa55","target":"","note":"","date":1396945561740,"stream":"a88a9bcb3104cf3f2cd1679e1c17bcd7","owner":"","files":[{"name":"capturedvideo.MOV","localURL":null,"type":"video/quicktime","lastModifiedDate":1396945557000,"size":293247,"start":0,"end":0,"fullPath":"/private/var/mobile/Applications/04EDE893-079A-4368-AF51-270308A60991/tmp/capture/capturedvideo.MOV","file_name":"1396945559662.mov","url":"http://media.agamecompany.com/childnotebook_files/1396945559662.mov"}],"subject":"Akil","source":"kjartanjonsson@agamecompany.com","destroyed":1396949034100}}
 ]}
