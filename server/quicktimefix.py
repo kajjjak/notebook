@@ -30,7 +30,8 @@ with open("links.json") as json_file:
 				#	2 = 90CounterClockwise
 				#	3 = 90Clockwise and Vertical Flip
 				#
-				cmd = './ffmpeg -i '+file["file_name"]+' -vf "'+rotate_index+'" -strict -2  tmp_'+file["file_name"]+''
+				cmd = 'ffmpeg -i '+file["file_name"]+' -vf "transpose=1" -metadata:s:v:0 rotate=0 -strict experimental tmp_'+file["file_name"]+''
+				#mac: cmd = './ffmpeg -i '+file["file_name"]+' -vf "'+rotate_index+'" -strict -2  tmp_'+file["file_name"]+''
 				print cmd
 				os.system(cmd)
-				qtrotate.get_set_rotation('tmp_'+file["file_name"], 0)
+				#skip in linux: qtrotate.get_set_rotation('tmp_'+file["file_name"], 0)

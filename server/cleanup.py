@@ -3,6 +3,7 @@ import urllib
 import json
 import couchdb
 import ftplib
+import const
 
 #fetch the list
 urllib.urlretrieve (url_links, "destroyed.json")
@@ -10,7 +11,7 @@ urllib.urlretrieve (url_links, "destroyed.json")
 couch = couchdb.Server('http://54.249.245.7/')
 couchdb = couch['notebook'];
 
-session = ftplib.FTP('agame.webfactional.com','agame','70d7fbaa')
+session = ftplib.FTP('agame.webfactional.com',const.MEDIA_SERVER_USERNAME, const.MEDIA_SERVER_PASSWORD)
 
 
 with open("destroyed.json") as json_file:
