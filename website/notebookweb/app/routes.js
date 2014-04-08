@@ -29,6 +29,7 @@ module.exports = function(app, passport) {
 		var db = nano.db.use('notebook');
 		var id = req.params.share_id;
     	db.get(id, function(err, doc){
+    		//TODO: check if this is shared to facebook before updating
 			var d = {};
 			d["id"] = id;
 			d["media_type"] = "og:image";
