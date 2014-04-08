@@ -96,16 +96,16 @@ function shareCardFacebook(){
     var title = $(".facebook_share_button").attr("data-title");
     var descr = $(".facebook_share_button").attr("data-descr");
     var media = $(".facebook_share_button").attr("data-media");
-    //window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(url)+"&t="+title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+    window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(url)+"&t="+title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
     //window.location.href="https://www.facebook.com/sharer/sharer.php?u="+escape(url)+"&t="+title;
-    
+    /*
     //https://developers.facebook.com/docs/sharing/reference/feed-dialog
     //media type can only be SWF or MP3
     FB.ui({
       method: 'feed',
       link: url,
       caption: title,
-      description: descr,
+      //description: descr,
       picture: media,
       source: media
     }, function(response){
@@ -115,7 +115,7 @@ function shareCardFacebook(){
           console.info('Post was not published.');
         }        
     });
-    
+    */
     return false; 
 }
 
