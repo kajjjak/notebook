@@ -438,10 +438,10 @@ var app = {
             if(attr){
                 if (attr == "email"){
                     var emails = $(this).val().split(";");
-                    app.client_doc.feeds[app.selected_feed][attr] = [];
-                    var emails_invites = [];
+                    app.client_doc.feeds[app.selected_feed][attr] = {};
+                    var emails_invites = {};
                     for (var i in emails){
-                        emails_invites.push(app.getMailInvitation(emails[i]));
+                        emails_invites[i] = app.getMailInvitation(emails[i]);
                     }
                     app.client_doc.feeds[app.selected_feed][attr] = emails_invites;
                 }else{

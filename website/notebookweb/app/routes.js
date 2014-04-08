@@ -1,3 +1,4 @@
+
 module.exports = function(app, passport) {
 
 // normal routes ===============================================================
@@ -18,6 +19,26 @@ module.exports = function(app, passport) {
 	app.get('/logout', function(req, res) {
 		req.logout();
 		res.redirect('/');
+	});
+
+
+	// show the signup form
+	// https://developers.facebook.com/docs/opengraph/creating-custom-stories/#objecttypes
+	app.get('/social/:share_id', function(req, res) {	
+		var nano = require('nano')('http://54.249.245.7/');
+		var db = nano.db.use('notebook');
+		var id = req.params.share_id;
+    	db.get(id, function(err, doc){
+			var d = {};
+			d["id"] = id;
+			d["media_type"] = "og:image";
+			d["media_url"] = doc.files[0].url;
+			if(doc.files[0].type.indexOf("video") == 0){
+				d["media_type"] = "og:video";
+			}
+			d["subject"] = doc.subject;
+    		res.render('social.ejs', d);
+    	});
 	});
 
 // =============================================================================
