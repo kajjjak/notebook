@@ -24,6 +24,7 @@ module.exports = function(app, passport) {
 
 	// show the signup form
 	// https://developers.facebook.com/docs/opengraph/creating-custom-stories/#objecttypes
+	//https://developers.facebook.com/docs/sharing/reference/feed-dialog
 	app.get('/social/:share_id', function(req, res) {	
 		var nano = require('nano')('http://54.249.245.7/');
 		var db = nano.db.use('notebook');

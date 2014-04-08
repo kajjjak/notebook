@@ -91,22 +91,66 @@ function updateCard(self){
     });
 }
 
+function shareCardFacebook(){
+    var url = $(".facebook_share_button").attr("data-href");
+    var title = $(".facebook_share_button").attr("data-title");
+    var descr = $(".facebook_share_button").attr("data-descr");
+    var media = $(".facebook_share_button").attr("data-media");
+    //window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(url)+"&t="+title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+    //window.location.href="https://www.facebook.com/sharer/sharer.php?u="+escape(url)+"&t="+title;
+    
+    //https://developers.facebook.com/docs/sharing/reference/feed-dialog
+    var media_type = undefined;
+    if (media.indexOf(".mov") > 1){
+        media_type = "SWF";
+    }
+    FB.ui({
+      method: 'feed',
+      link: url,
+      caption: title,
+      description: descr,
+      picture: media,
+      source: media_type
+    }, function(response){
+        if (response && response.post_id) {
+          console.info('Post was published.');
+        } else {
+          console.info('Post was not published.');
+        }        
+    });
+
+    return false; 
+}
+
+
 function displayCard(self){
     var item = cards[self.id];
     var pictures = "";
     for (var f in item.files){
         pictures = pictures + "<span class='view_card_media'>" + renderMedia(item.files[f]) + "</span>";
     }
+    var title = item.note || item.subject || "Card";
     var heading = "";
     //heading = heading + "<p class='view_card_info_subject'>"+item.subject+"</p>";
     heading = heading + "<p class='view_card_info_source'>"+item.source+"</p>";
     heading = heading + "<p class='view_card_info_date'>"+renderDate(new Date(item.date))+"</p>";
     heading = heading + "<center><br><br><input id='view_card_info_note' type='text' value='"+item.note+"' /><br><br>";
-    $("#view_card_title").html(item.note || item.subject || "Card");
+
+    $("#view_card_title").html(title);
     var menu = "";
     menu = menu + "<button id='update_"+item._id+"' onclick='updateCard(this)'>update</button><br><br>";
     menu = menu + "<button id='delete_"+item._id+"' onclick='deleteCard(this)'>delete</button><br><br>";
     $("#view_card_content").html(heading + pictures +"<br><br>"+ menu+"</center>");
+    var media_file = "";
+    if (item.files.length){
+        media_file = item.files[0].url;
+    }
+    // facaebook share button
+    $(".facebook_share_button").attr("data-href", "http://notebook.agamecompany.com/social/"+item._id);
+    $(".facebook_share_button").attr("data-title", title);
+    $(".facebook_share_button").attr("data-descr", item.note);
+    $(".facebook_share_button").attr("data-media", media_file);
+
     setTimeout(function(){location.href="#card";}, 100);
 }
 
