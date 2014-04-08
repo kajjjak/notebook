@@ -100,17 +100,14 @@ function shareCardFacebook(){
     //window.location.href="https://www.facebook.com/sharer/sharer.php?u="+escape(url)+"&t="+title;
     
     //https://developers.facebook.com/docs/sharing/reference/feed-dialog
-    var media_type = undefined;
-    if (media.indexOf(".mov") > 1){
-        media_type = "SWF";
-    }
+    //media type can only be SWF or MP3
     FB.ui({
       method: 'feed',
       link: url,
       caption: title,
       description: descr,
       picture: media,
-      source: media_type
+      source: media
     }, function(response){
         if (response && response.post_id) {
           console.info('Post was published.');
@@ -118,7 +115,7 @@ function shareCardFacebook(){
           console.info('Post was not published.');
         }        
     });
-
+    
     return false; 
 }
 

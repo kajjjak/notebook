@@ -39,6 +39,7 @@ module.exports = function(app, passport) {
 				d["media_type"] = "og:video";
 			}
 			d["subject"] = doc.subject;
+			d["description"] = doc.note;
     		res.render('social.ejs', d);
     	});
 	});
