@@ -193,11 +193,7 @@
       <h1 id="page_title_map">Record</h1>
       <a class="fix_button page_books_button" href="#setup" data-shadow="false" data-iconshadow="false" data-icon="gear" data-iconpos="notext">settings</a>
     </div><!-- /header -->    
-    <div data-role="content"> 
-        <select class="stream_field" name="target" id="target" onchange="app.nowSelectedStream()">
-           <option value=""></option>
-        </select>
-        
+    <div data-role="content">         
         <fieldset class="ui-grid-a" id="select-recording">
             <div class="ui-block-a">
               <center>
@@ -213,14 +209,18 @@
                 </center>
               </a>
           </div>
-        </fieldset>        
-      <fieldset class="ui-grid-a">
-          <input class="stream_field" type="text" name="note" id="note" value="" placeholder="Optional notes"/>
-      </fieldset>              
+        </fieldset> 
+
+        <div id="note_record"></div>
+        
+        <fieldset data-role="controlgroup" id="target"></fieldset>
+        <fieldset class="ui-grid-a">
+            <input class="stream_field" type="text" name="note" id="note" value="" placeholder="Optional notes"/>
+        </fieldset>         
+
         <a href="#" data-role="button" data-icon="check" data-theme="b" onclick="app.saveForm();" data-iconpos="right">Save</a>
         <!-- a class="button_mainlist" onclick="app.clearForm();" data-role="button" data-icon="back" data-theme="d" data-iconpos="right">Cancel</a 
         -->
-        <div id="note_record"></div>
         <div id="log"></div>
       </div>
       
@@ -258,7 +258,6 @@
   <script type="text/javascript" src="js/pouchdb.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="js/base64.js" charset="utf-8"></script>
   <script type="text/javascript" src="js/md5.js" charset="utf-8"></script>
-  <SCRIPT TYPE="text/javascript" src="js/mailgun.js" charset="utf-8"></SCRIPT>
   <SCRIPT TYPE="text/javascript" src="js/utils_phonegap.js" charset="utf-8"></SCRIPT>
 
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>

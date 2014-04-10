@@ -418,17 +418,19 @@ var app = {
         }
     },
     showStreamFeedsSelection: function(){
-        $(".stream_field#target").empty();
-        $(".stream_field#target").append('<option value="" selected></option>');
+        $("#target").empty();
         for(var i in app.client_doc.feeds){
             var feed_info = app.client_doc.feeds[i];
-            $(".stream_field#target").append('<option value="' + i + '">' + feed_info.name + '</option>');
+            var checkbox_id = i;
+            $("#target").append('<input type="checkbox" name="'+feed_info.name+'" id="'+checkbox_id+'" class="custom" style="width:100%" /><label for="'+checkbox_id+'">'+feed_info.name +'</label>');
         }
-    },
+        $("input[type='checkbox']").checkboxradio().checkboxradio("refresh");
+    }, 
     getRandomId: function(){
         return CryptoJS.MD5(new Date().getTime()+"")+"";
     },
     saveStreamFeedInfo: function() {
+        // FIXME: assumes that user sets an email. But if no email is set then we have no index.
         if (!app.selected_feed){
             app.selected_feed = app.getRandomId();
             app.client_doc.feeds[app.selected_feed] = {};
@@ -451,6 +453,18 @@ var app = {
         });
         setTimeout(app.saveClientInfo, 800);
     },
+    getSelectedStream: function(){
+        var s = $("#target").val();
+        var streams = {};
+        var lst = $("input[type='checkbox']");
+        streams[app.client_uid] = {"name": app.client_doc.username};
+        for (var i in lst){
+            if (lst[i].checked){
+                streams[lst[i].id] = {"name": lst[i].name, "time": new Date().getTime()};
+            }
+        }
+        return streams;
+    },    
     saveClientInfo: function(){
         app.client_doc._id = app.client_doc._id || app.client_uid;
         app.saveData(app.client_doc, function(client_doc){
@@ -500,16 +514,6 @@ var app = {
         });
 
     },
-    nowSelectedStream: function(){
-        sessionStorage.setItem("selected_stream", $("#target").val());
-    },
-    getSelectedStream: function(){
-        var s = $("#target").val();
-        if(!s){
-            s = sessionStorage.getItem("selected_stream");
-        }
-        return s;
-    },
     saveForm: function(){
         var doc = {};
         $(".stream_field").each(function(i){
@@ -520,11 +524,8 @@ var app = {
         });
         doc.date = new Date().getTime();
         doc.stream = app.getSelectedStream(); //the stream identifier + self
-        if (!doc.stream){ doc.stream = app.client_uid; }
-        doc.owner = ""; //the stream owner (this should be a valid user id)
+        doc.owner = app.client_uid; //the stream owner (this should be a valid user id)
         doc.files = app.media_files;
-        doc["subject"] = app.client_doc.username;
-        if(app.client_doc.feeds[doc.stream]){doc["subject"] = app.client_doc.feeds[doc.stream].name;}
         doc["source"] = app.client_doc.username;
 
         app.saveData(doc, function(new_doc){
@@ -545,10 +546,10 @@ var app = {
         for (var i in app.media_files){
             type = app.media_files[i].type || app.media_files[i].content_type;
             if (type.indexOf("image") === 0){
-                imgs = imgs + "<IMG STYLE='width:100px' SRC='" + app.media_files[i].uri + "'/>" ;
+                imgs = imgs + "<IMG STYLE='width:100%' SRC='" + app.media_files[i].uri + "'/><br>" ;
             }else{
                 if(type == "video/quicktime"){
-                    imgs = imgs + '<EMBED SRC="'+ app.media_files[i].fullPath +'" WIDTH=100 AUTOPLAY=false CONTROLLER=true LOOP=false PLUGINSPAGE=http://www.apple.com/quicktime/">';
+                    imgs = imgs + '<EMBED SRC="'+ app.media_files[i].fullPath +'" WIDTH="100%" AUTOPLAY=false CONTROLLER=true LOOP=false PLUGINSPAGE=http://www.apple.com/quicktime/"><br>';
                 }
             }
         }
